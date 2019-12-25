@@ -10,4 +10,10 @@
     letter-spacing: 0.5px;
     text-transform: uppercase;
     cursor: pointer;
+    transition: 0.4s all ease;
+}
+
+.submit-btn:hover {
+    color: black;
+    background: #F27059;
 }

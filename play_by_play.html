@@ -5,70 +5,155 @@
         <title>Play By Play</title>
         <script src="https://kit.fontawesome.com/9a93ec8ea5.js" crossorigin="anonymous"></script>
         <style>
-            html {
-                margin: 0.5%;
+            #bgset{
+                border:2px green solid;
+                height: 628px;
+                width: 1200px;
+                background:#fff;
+                background:-webkit-linear-gradient(top,#ffffff,rgba(51,51,51,0)),url(baseball_field.jpg) center no-repeat;
+                background-size: cover;
+                z-index: -1;
+                margin: 0 auto; 
             }
             div {
-                background-color: yellow;
-                border: 1px black solid;
+               
+                border: black solid 1px;
             }
             .score_board{
                 display:table;
                 overflow:auto;
-                width: 100%;
+                width: 97%;
                 height: 100px;
-                background-color: yellow;
+                margin-top: 20px;
+                margin-left: 1.5%;
             }
             .rounds, .scoreboard, .bases{
                 float: left;
                 border: 1px black solid;
                 width: 31%;
-                height: 95%;
+                height: 100%;
             }
 
             .rounds, .scoreboard{
-                margin-right: 3%;
-                height: 95%;
+                font-family: fantasy;
+                margin-right: calc(5% - 3px);
             }
-            #team1, #team2, #score {
+
+            .rounds {
+                font-size: 30px;
+                text-align: center;
+                width: 10%;
+                line-height: 100px;
+            }
+
+            .scoreboard {
+                width: 60%;
+                text-align: center;
+            }
+
+            .score_box {
+                height: calc(70% - 2px);
+                margin-bottom: 0px;
+                font-size: 45px;
+                padding-left: calc(49% - 155px);
+                line-height: 63px;
+            }
+
+            .score_box img {
+                height: 65px;
+                width: 65px;
+            }
+
+            #team1, #team2, #score, #logo1, #logo2{
                 float: left;
+                margin-right: 10px;
+                height: 100%;
             }
+
+            #team1, #team2, #score {
+                margin-top: 5px;
+                height: 80%;
+            }
+
+            .outs {
+                height: calc(30% - 2px);
+                line-height: 30px;
+            }
+
+            .bases {
+                width: 20%;
+            }
+
+            #base1, #base2, #base3 {
+                width: 45px;
+                height: 45px;
+                float: left;
+                position: relative;
+                border-radius: 8px 8px 8px 8px;
+                font-size: 50px;
+            }
+     
+            #base1 {
+                left: 25%;
+                top: 45%;
+            }
+
+            #base2 {
+                left: 20%;
+                top: 5%;
+            }
+
+            #base3 {
+                left: 15%;
+                top: 45%;
+            }
+
             table, th, td {
                 text-align: center;
                 border: 1px solid #000;
             }
+
             .gamePlace {
                 position: relative;
-                width: 100%;
-                height: 500px;
-                overflow:auto;
+                width: 98%;
+                height: 65%;
+                overflow:visible;
+                margin: auto;
             }
+
             .gamePlace table{
                width: 100%;
                height: 100%;
             }
+
             .A {
                 position: absolute;
-                width: 15%;
-                height: 80%;
+                width: 20%;
+                height: 100%;
                 left: 0px;
             }
+
             .B {
                 position: absolute;
-                width: 15%;
+                width: 20%;
                 right: 0px;
-                height: 80%;
+                height: 100%;
             }
+
             #plays {
-                width: 60%;
+                width: 50%;
                 position: absolute;
-                right: 20%;
-                height: 80%;
+                top: 5%;
+                bottom: 5%;
+                left: 25%;
+                height: 90%;
             }
         </style>
     </head>
 
     <body>
+        <h1 align="center"><font face="fantasy">Play By Play</font></h1>
+        <div id="bgset">
         <div class="score_board">
             <div class="rounds" id="rounds">
                 1
@@ -77,10 +162,14 @@
             </div>
 
             <div class="scoreboard">
-                <div id="team1">A</div>
-                <div id="score">0:0</div>
-                <div id="team2">B</div>
-                <br>
+                <div class="score_box">
+                    <div id="logo1"><img src="CT.gif"></div>
+                    <div id="team1">A</div>
+                    <div id="score">0 ： 0</div>
+                    <div id="team2">B</div>
+                    <div id="logo2"><img src="TC.jpg"></div>
+                </div>
+                
                 <div class="outs">
                     <i class="fas fa-circle"></i>
                     <i class="far fa-circle"></i>
@@ -89,56 +178,68 @@
             </div>
 
             <div class="bases">
-                <i class="fas fa-square"></i>
-                <i class="far fa-square"></i>
+                <div id="base3"><i class="fas fa-square"></i></div>
+                <div id="base2"><i class="fas fa-square"></i></div>
+                <div id="base1"><i class="far fa-square"></i></div>
             </div>
         </div>
         <br>
         <div class="gamePlace">
             <div class="A">
                 <table id="batterListA">
-                    <th colspan="2">Team A</th>
+                    <th colspan="3">Team A</th>
                     <tr>
+                        <td>守位</td>
                         <td>batter1</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter2</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter3</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter3</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter4</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter5</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter6</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter7</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter8</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter9</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter10</td>
                         <td>數值</td>
                     </tr>
@@ -151,53 +252,65 @@
 
             <div class="B">
                 <table id="batterListB">
-                    <th colspan="2">Team B</th>
+                    <th colspan="3">Team B</th>
                     <tr>
+                        <td>守位</td>
                         <td>batter1</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter2</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter3</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter3</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter4</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter5</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter6</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter7</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter8</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter9</td>
                         <td>數值</td>
                     </tr>
                     <tr>
+                        <td>守位</td>
                         <td>batter10</td>
                         <td>數值</td>
                     </tr>
                 </table>
             </div>
         </div>
+    </div>
     </body>
 </html>
