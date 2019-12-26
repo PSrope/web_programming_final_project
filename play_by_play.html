@@ -15,10 +15,7 @@
                 z-index: -1;
                 margin: 0 auto; 
             }
-            div {
-               
-                border: black solid 1px;
-            }
+
             .score_board{
                 display:table;
                 overflow:auto;
@@ -33,7 +30,7 @@
                 width: 31%;
                 height: 100%;
             }
-
+            
             .rounds, .scoreboard{
                 font-family: fantasy;
                 margin-right: calc(5% - 3px);
@@ -85,27 +82,30 @@
             }
 
             #base1, #base2, #base3 {
-                width: 45px;
-                height: 45px;
+                width: 46px;
+                height: 46px;
                 float: left;
                 position: relative;
                 border-radius: 8px 8px 8px 8px;
                 font-size: 50px;
+                background-color: lightgray;
+                transform:rotate(45deg);
             }
      
             #base1 {
-                left: 25%;
-                top: 45%;
+                left: 18%;
+                top: 42%;
             }
 
             #base2 {
-                left: 20%;
-                top: 5%;
+                left: 18%;
+                top: 8%;
+                background-color: yellow;
             }
 
             #base3 {
-                left: 15%;
-                top: 45%;
+                left: 19%;
+                top: 42%;
             }
 
             table, th, td {
@@ -126,14 +126,14 @@
                height: 100%;
             }
 
-            .A {
+            .List_A {
                 position: absolute;
                 width: 20%;
                 height: 100%;
                 left: 0px;
             }
 
-            .B {
+            .List_B {
                 position: absolute;
                 width: 20%;
                 right: 0px;
@@ -178,14 +178,14 @@
             </div>
 
             <div class="bases">
-                <div id="base3"><i class="fas fa-square"></i></div>
-                <div id="base2"><i class="fas fa-square"></i></div>
-                <div id="base1"><i class="far fa-square"></i></div>
+                <div id="base3"></div>
+                <div id="base2"></div>
+                <div id="base1"></div>
             </div>
         </div>
         <br>
         <div class="gamePlace">
-            <div class="A">
+            <div class="List_A">
                 <table id="batterListA">
                     <th colspan="3">Team A</th>
                     <tr>
@@ -250,7 +250,7 @@
                 安打啦
             </div>
 
-            <div class="B">
+            <div class="List_B">
                 <table id="batterListB">
                     <th colspan="3">Team B</th>
                     <tr>
