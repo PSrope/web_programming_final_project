@@ -17,3 +17,10 @@
     color: black;
     background: #F27059;
 }
+
+.submit-btn:disabled{
+    opacity: 50%;
+    color: black;
+    background: #F27059;
+    cursor: default;
+}

@@ -4,11 +4,12 @@
         <meta charset="utf8">
         <title>Play By Play</title>
         <script src="https://kit.fontawesome.com/9a93ec8ea5.js" crossorigin="anonymous"></script>
+        <link href="stylesheet/css.css" rel='stylesheet' type='text/css' />
         <style>
             #bgset{
                 border:2px green solid;
                 height: 628px;
-                width: 1200px;
+                width: 1216px;
                 background:#fff;
                 background:-webkit-linear-gradient(top,#ffffff,rgba(51,51,51,0)),url(baseball_field.jpg) center no-repeat;
                 background-size: cover;
@@ -26,11 +27,11 @@
             }
             .rounds, .scoreboard, .bases{
                 float: left;
-                border: 1px black solid;
+                border: 1px black groove;
                 width: 31%;
                 height: 100%;
             }
-            
+
             .rounds, .scoreboard{
                 font-family: fantasy;
                 margin-right: calc(5% - 3px);
@@ -41,10 +42,12 @@
                 text-align: center;
                 width: 10%;
                 line-height: 100px;
+                margin-left: 5%;
             }
 
             .scoreboard {
-                width: 60%;
+                width: 50%;
+                margin-left: 5%;
                 text-align: center;
             }
 
@@ -63,7 +66,7 @@
 
             #team1, #team2, #score, #logo1, #logo2{
                 float: left;
-                margin-right: 10px;
+                margin-right: 15px;
                 height: 100%;
             }
 
@@ -79,6 +82,7 @@
 
             .bases {
                 width: 20%;
+                border: none;
             }
 
             #base1, #base2, #base3 {
@@ -90,32 +94,42 @@
                 font-size: 50px;
                 background-color: lightgray;
                 transform:rotate(45deg);
+                border: black 1px solid;
             }
      
             #base1 {
-                left: 18%;
+                left: 22%;
                 top: 42%;
             }
 
             #base2 {
-                left: 18%;
+                left: 22%;
                 top: 8%;
                 background-color: yellow;
             }
 
             #base3 {
-                left: 19%;
+                left: 22%;
                 top: 42%;
             }
 
-            table, th, td {
+            .List_A table, .List_A th, .List_A td {
+                color: lightgray;
                 text-align: center;
                 border: 1px solid #000;
+                background-color: rgb(165, 0, 0);
+            }
+
+            .List_B table, .List_B th, .List_B td {
+                color: lightgray;
+                text-align: center;
+                border: 1px solid #000;
+                background-color: rgb(0, 0, 165);
             }
 
             .gamePlace {
                 position: relative;
-                width: 98%;
+                width: 96%;
                 height: 65%;
                 overflow:visible;
                 margin: auto;
@@ -147,6 +161,18 @@
                 bottom: 5%;
                 left: 25%;
                 height: 90%;
+                background-color: rgb(226, 255, 60, 0.8);
+                overflow: auto;
+                border: black 2px solid;
+            }
+
+            #plays:hover {
+                background-color: rgb(226, 255, 60, 1);
+            }
+
+            .submit-btn{
+                float: right;
+                margin-right: 20px;
             }
         </style>
     </head>
@@ -164,9 +190,9 @@
             <div class="scoreboard">
                 <div class="score_box">
                     <div id="logo1"><img src="CT.gif"></div>
-                    <div id="team1">A</div>
+                    <div id="team1" style="color: rgb(165, 0, 0);">A</div>
                     <div id="score">0 ： 0</div>
-                    <div id="team2">B</div>
+                    <div id="team2" style="color: rgb(0, 0, 165);">B</div>
                     <div id="logo2"><img src="TC.jpg"></div>
                 </div>
                 
@@ -247,7 +273,12 @@
             </div>
 
             <div id="plays">
-                安打啦
+                <table id="plays_table">
+                    <tr style="display: none;">
+                        <td>安打啦</td>
+                    </tr>
+                </table>
+                
             </div>
 
             <div class="List_B">
@@ -311,6 +342,9 @@
                 </table>
             </div>
         </div>
+        <br>
+        <input type="button" value="Next" class="submit-btn" disabled onclick="result()">
+        <input type="button" value="Quick End" class="submit-btn" onclick="end()">
     </div>
     </body>
 </html>
