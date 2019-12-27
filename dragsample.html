@@ -3,49 +3,74 @@
    <head>
       <meta charset = "utf-8">
       <title>try</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <style>
+        [draggable="true"] {
+          user-select: none;
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+        }
 
+        ul.moveable {
+          list-style: none;
+          margin: 0px;
+
+          li {
+            list-style-image: none;
+            margin: 10px;
+            border: 1px solid #ccc;
+            padding: 4px;
+            border-radius: 4px;
+            color: #666;
+            cursor: move;
+
+            &:hover {
+              background-color: #eee;
+            }
+          }
+        }
       </style> 
       <script>
-let items = document.querySelectorAll('#items-list > li')
+        let items = document.querySelectorAll('#items-list > li')
 
-items.forEach(item => {
-  $(item).prop('draggable', true)
-  item.addEventListener('dragstart', dragStart)
-  item.addEventListener('drop', dropped)
-  item.addEventListener('dragenter', cancelDefault)
-  item.addEventListener('dragover', cancelDefault)
-})
+        items.forEach(item => {
+          $(item).prop('draggable', true)
+          item.addEventListener('dragstart', dragStart)
+          item.addEventListener('drop', dropped)
+          item.addEventListener('dragenter', cancelDefault)
+          item.addEventListener('dragover', cancelDefault)
+        })
 
-function dragStart (e) {
-  var index = $(e.target).index()
-  e.dataTransfer.setData('text/plain', index)
-}
+        function dragStart (e) {
+          var index = $(e.target).index()
+          e.dataTransfer.setData('text/plain', index)
+        }
 
-function dropped (e) {
-  cancelDefault(e)
-  
-  // get new and old index
-  let oldIndex = e.dataTransfer.getData('text/plain')
-  let target = $(e.target)
-  let newIndex = target.index()
-  
-  // remove dropped items at old place
-  let dropped = $(this).parent().children().eq(oldIndex).remove()
+        function dropped (e) {
+          cancelDefault(e)
+          
+          // get new and old index
+          let oldIndex = e.dataTransfer.getData('text/plain')
+          let target = $(e.target)
+          let newIndex = target.index()
+          
+          // remove dropped items at old place
+          let dropped = $(this).parent().children().eq(oldIndex).remove()
 
-  // insert the dropped items at new place
-  if (newIndex < oldIndex) {
-    target.before(dropped)
-  } else {
-    target.after(dropped)
-  }
-}
+          // insert the dropped items at new place
+          if (newIndex < oldIndex) {
+            target.before(dropped)
+          } else {
+            target.after(dropped)
+          }
+        }
 
-function cancelDefault (e) {
-  e.preventDefault()
-  e.stopPropagation()
-  return false
-}
+        function cancelDefault (e) {
+          e.preventDefault()
+          e.stopPropagation()
+          return false
+        }
       </script>
    </head>
       

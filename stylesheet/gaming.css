@@ -167,7 +167,26 @@
     background-color: rgb(226, 255, 60, 1);
 }
 
-.submit-btn{
+.submit-btn2{
     float: right;
     margin-right: 20px;
 }
+
+.submit-btn {
+    color: #ffffff;
+    background: #82D026;
+    font-size: 16px;
+    font-weight: 400;
+    width:200px;
+    height:40px;
+    font-family: "fantasy";
+    border: none;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+ }
+ .select_div {
+    width: 1204px;
+    height: 634px;
+    margin: 0 auto; 
+ }

@@ -15,23 +15,22 @@ $(document).ready(function() {
      $("#submit-btn").click(function() {
          $("#container").html(''+
          '<h1 align="center"><font face="fantasy">Please Select  Team:</font></h1>' +
-         '<div>' +
-         '  <img  style="border:2px green solid; display:block; margin:auto; " src="https://dpsvdv74uwwos.cloudfront.net/statics/img/ogimage/red-team-vs-blue-team.png">' +
-         '   <div style = "position: absolute;  background-color:#C7FF91; left:400px;  top:250px ;   width:300px;height:200px;border:3px blue  solid;">' +
+         '<div class="select_div">' +
+         '  <img  style="position: absolute; border:2px green solid; display:block; margin:auto; " src="https://dpsvdv74uwwos.cloudfront.net/statics/img/ogimage/red-team-vs-blue-team.png">' +
+         '   <div style = "position: relative;  background-color:#C7FF91; left:10%;  top:220px ;   width:300px;height:200px;border:3px blue  solid;">' +
          '   1' +
          '   </div>' +
-         '   <div style = "position: absolute; background-color:#C7FF91; right:390px;  top:350px;    width:300px;height:200px;border:3px #CC0000  solid;">' +
+         '   <div style = "position: relative; background-color:#C7FF91; left:62%;  bottom:80px;    width:300px;height:200px;border:3px #CC0000  solid;">' +
          '     2d' +
          '  </div>' +
-         '  <div style = "position: absolute; background-color:#C7FF91; left:400px;  top:500px;    width:300px;height:40px;border:3px blue  solid;">' +
+         '  <div style = "position: relative; background-color:#C7FF91; left: 10%;  top:40px;    width:300px;height:40px;border:3px blue  solid;">' +
          '     3' +
          '  </div>' +
-         '  <div style = "position: absolute; background-color:#C7FF91; right:390px;  top:250px;    width:300px;height:40px;border:3px #CC0000  solid;">' +
+         '  <div style = "position: relative; background-color:#C7FF91; left:62%;  bottom: 100px;    width:300px;height:40px;border:3px #CC0000  solid;">' +
          '     4' +
          '  </div>' +
          '</div>' +
          '<br>' +
-         '<center><input type="submit" onClick="myClick()"  value="READY" class="submit-btn" ></input></center>'
-             );
+         '<center><input type="submit" onClick="myClick()"  value="READY" class="submit-btn" ></input></center>');
      });
 });
