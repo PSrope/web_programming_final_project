@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DragSort Example</title>
+	<meta charset="utf-8" />
+	<style type="text/css">
+		body { font-family:Arial; font-size:12pt; padding:20px; width:820px; margin:20px auto; border:solid 1px black; }
+		h1 { font-size:16pt; }
+		h2 { font-size:13pt; }
+		ul { margin:0px; padding:0px; margin-left:20px; }
+		#list1, #list2 { width:350px; list-style-type:none; margin:0px; }
+		#list1 li, #list2 li { float:left; padding:5px; width:100px; height:100px; }
+		#list1 div, #list2 div { width:90px; height:50px; border:solid 1px black; background-color:#E0E0E0; text-align:center; padding-top:40px; }
+		#list2 { float:right; }
+		.placeHolder div { background-color:white !important; border:dashed 1px gray !important; }
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="jquery.dragsort.js"></script>
+	
+	
+
+	<h2>Simple 1D list:</h2>
+	
+	<ul>
+		<li>1號球員</li>
+		<li>2號球員</li>
+		<li>3號球員</li>
+		<li>4號球員</li>
+		<li>5號球員</li>
+		<li>6號球員</li>
+	</ul>
+	<br/>
+		
+	<script type="text/javascript">
+		$("ul:first").dragsort();
+    </script>
+
+<input name="list1SortOrder" type="hidden" />
+
+<script type="text/javascript">
+    $("#list1, #list2").dragsort({ dragSelector: "div", dragBetween: true, dragEnd: saveOrder, placeHolderTemplate: "<li class='placeHolder'><div></div></li>" });
+    
+    function saveOrder() {
+        var data = $("#list1 li").map(function() { return $(this).children().html(); }).get();
+        $("input[name=list1SortOrder]").val(data.join("|"));
+    };
+</script>
+    <div style="clear:both;"></div>
+</body>
+</html>
