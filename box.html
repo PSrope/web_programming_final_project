@@ -97,6 +97,49 @@
                 vertical-align: top;
             }
 
+            .just_div {
+                padding: 0px;
+                position: relative;
+                width: 1164px;
+                height: 350px;
+                top: 15px;
+                left: 0px;
+                background-color: none;
+                overflow: auto;
+            }
+
+            #TeamA_batter, #TeamB_batter {
+                margin-left:auto; 
+                margin-right:auto;
+            }
+
+            #TeamA_batter td, #TeamB_batter td{
+                top: 10px;
+                position: relative;
+                width: 60px;
+                height:30px;
+                text-align: center;
+                font-size: 18px;
+
+            }
+
+            #TeamA_batter tr:nth-child(odd), #TeamB_batter tr:nth-child(odd) {
+                background-color: lightgray;
+            }
+
+            #TeamA_batter tr:nth-child(even), #TeamB_batter tr:nth-child(even) {
+                background-color: rgb(167, 167, 167);
+            }
+
+            #TeamA_batter tr:nth-child(1) {
+                background-color: rgb(165, 0, 0);
+                color: lightgray;
+            }
+            #TeamB_batter tr:nth-child(1) {
+                background-color: rgb(0, 0, 165);
+                color: lightgray;
+            }
+
         </style>
     </head>
 
@@ -124,7 +167,7 @@
                         <td> </td>
                         <td>R</td>
                         <td>H</td>
-                        <td>E</td>
+                        <td>E</td">
                     </tr>
                     <tr id="teamA_score">
                         <td>TEAM A</td><td>0</td><td>0</td><td>3</td><td>1</td><td>1</td><td>2</td><td>0</td><td> </td><td>7</td><td>6</td><td>2</td>
@@ -136,7 +179,7 @@
             </div>
 
             <br>
-
+            <input type="button" value="Back to Index" class="submit-btn">
             <ul class="nav nav-tabs" style="width: 96%; margin: auto;">
                 <li class="active"><a data-toggle="tab" href="#PbyP">Play By Play</a></li>
                 <li><a data-toggle="tab" href="#TA">Team A</a></li>
@@ -153,12 +196,116 @@
                   </div>
                 </div>
                 <div id="TA" class="tab-pane fade">
-                  <h3>Menu 1</h3>
-                  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="just_div">
+                        <table id="TeamA_batter">
+                            <tr>
+                                <td style="width: 300px;"></td>
+                                <td>AB</td>
+                                <td>R</td>
+                                <td>H</td>
+                                <td>RBI</td>
+                                <td>BB</td>
+                                <td>SO</td>
+                                <td>AVG</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px; text-indent: 5px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
                 <div id="TB" class="tab-pane fade">
-                  <h3>Menu 2</h3>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                    <div class="just_div">
+                        <table id="TeamB_batter">
+                            <tr>
+                                <td style="width: 300px;"></td>
+                                <td>AB</td>
+                                <td>R</td>
+                                <td>H</td>
+                                <td>RBI</td>
+                                <td>BB</td>
+                                <td>SO</td>
+                                <td>AVG</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px; text-indent: 5px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; text-indent: 10px;">batter1</td>
+                                <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
 
