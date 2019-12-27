@@ -159,6 +159,10 @@
     border: black 2px solid;
 }
 
+#plays_table td{
+    vertical-align: top;
+}
+
 #plays:hover {
     background-color: rgb(226, 255, 60, 1);
 }

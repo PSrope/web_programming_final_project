@@ -80,6 +80,23 @@
                 background-size: contain;
                 box-shadow: 10px -6px 8px 0px rgb(73, 73, 73);
             }
+            #PbyP #plays {
+                padding: 0px;
+                position: relative;
+                width: 1164px;
+                height: 350px;
+                top: 15px;
+                left: 0px;
+                background-color: rgba(211, 211, 211, 0.8);
+                overflow: auto;
+            }
+            #PbyP #plays:hover {
+                background-color: rgba(211, 211, 211, 1);
+            }
+            #plays_table tr{
+                vertical-align: top;
+            }
+
         </style>
     </head>
 
@@ -127,8 +144,13 @@
             </ul>
             <div class="tab-content" style="width: 96%; margin: auto;">
                 <div id="PbyP" class="tab-pane fade in active">
-                  <h3>HOME</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <div id="plays">
+                    <table id="plays_table">
+                        <tr style="display: none;">
+                            <td>安打啦</td>
+                        </tr>
+                    </table>
+                  </div>
                 </div>
                 <div id="TA" class="tab-pane fade">
                   <h3>Menu 1</h3>
