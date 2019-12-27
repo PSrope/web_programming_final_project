@@ -16,7 +16,17 @@
     letter-spacing: 0.5px;
     text-transform: uppercase;
     cursor: pointer;
-}
+};
+[draggable="true"] {
+  /*
+   To prevent user selecting inside the drag source
+  */
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+};
+
       </style>
       <script>
          function myClick()
@@ -34,42 +44,82 @@
     
 
 
-      <div style = "position:fixed; left:450px;  top:120px;    width:200px;height:40px;">
+      <div style = "position:fixed; left:595px;  top:120px;    width:200px;height:40px;">
          <h1><font face="fantasy">Team Red</font></h1>
       </div>
 
-      <div style = "position:fixed; left:400px;  top:250px;     width:300px;height:500px;border:3px #CC0000  solid;">
+      <div style = "position:fixed; left:540px;  top:250px;     width:270px;height:650px;border:3px #CC0000  solid;">
+       <h1><div id="drag-source1a" draggable="true"><font face="fantasy">1</font></div></h1>
+         <h1><div id="drag-source2a" draggable="true"><font face="fantasy">2</font></div></h1>
+            <h1><div id="drag-source3a" draggable="true"><font face="fantasy">3</font></div></h1>
+               <h1><div id="drag-source4a" draggable="true"><font face="fantasy">4</font></div></h1>
+                  <h1><div id="drag-source5a" draggable="true"><font face="fantasy">5</font></div></h1>
+                     <h1> <div id="drag-source6a" draggable="true"><font face="fantasy">6</font></div></h1>
+                        <h1><div id="drag-source7a" draggable="true"><font face="fantasy">7</font></div></h1>
+                           <h1><div id="drag-source8a" draggable="true"><font face="fantasy">8</font></div></h1>
+                              <h1><div id="drag-source9a" draggable="true"><font face="fantasy">9</font></div></h1>
+                                 <h1><div id="drag-source10a" draggable="true"><font face="fantasy">10</font></div></h1>
+      </div>
+
+      <div style = "position:fixed; left:50px;  top:100px;     width:450px;height:800px;border:3px #CC0000  solid;">
+         <h1><font face="fantasy">1A</font></h1>
          <h1><font face="fantasy">1</font></h1>
+         <h1><font face="fantasy">2</font></h1>
+         <h1><font face="fantasy">3</font></h1>
+         <h1><font face="fantasy">4</font></h1>
+         <h1><font face="fantasy">5</font></h1>
+         <h1><font face="fantasy">6</font></h1>
+         <h1><font face="fantasy">7</font></h1>
+         <h1><font face="fantasy">8</font></h1>
+         <h1><font face="fantasy">9</font></h1>
+         <h1><font face="fantasy">10</font></h1>
       </div>
 
-      <div style = "position:fixed; left:50px;  top:100px;     width:300px;height:900px;border:3px #CC0000  solid;">
-         <h1><font face="fantasy">1a</font></h1>
-      </div>
-
-      <div style = "position:fixed; left:50px;  top:20px;     width:300px;height:50px;">
+      <div style = "position:fixed; left:120px;  top:20px;     width:300px;height:50px;">
          <h1><center><font face="fantasy">Status</font></center></h1>
       </div>
 
 
-        <div style = "position:fixed; right:430px;  top:120px;    width:200px;height:40px;">
+        <div style = "position:fixed; right:550px;  top:120px;    width:200px;height:40px;">
          <h1><font face="fantasy">Team Blue</font></h1>
         </div>
 
-        <div style = "position:fixed; right:400px;  top:250px;     width:300px;height:500px;border:3px #CC0000  solid;">
-         <h1><font face="fantasy">2</font></h1>
+        <div style = "position:fixed; right:540px;  top:250px;     width:270px;height:650px;border:3px #CC0000  solid;">
+         <h1><div id="drag-source1b" draggable="true"><font face="fantasy">1</font></div></h1>
+         <h1><div id="drag-source2b" draggable="true"><font face="fantasy">2</font></div></h1>
+            <h1><div id="drag-source3b" draggable="true"><font face="fantasy">3</font></div></h1>
+               <h1><div id="drag-source4b" draggable="true"><font face="fantasy">4</font></div></h1>
+                  <h1><div id="drag-source5b" draggable="true"><font face="fantasy">5</font></div></h1>
+                     <h1> <div id="drag-source6b" draggable="true"><font face="fantasy">6</font></div></h1>
+                        <h1><div id="drag-source7b" draggable="true"><font face="fantasy">7</font></div></h1>
+                           <h1><div id="drag-source8b" draggable="true"><font face="fantasy">8</font></div></h1>
+                              <h1><div id="drag-source9b" draggable="true"><font face="fantasy">9</font></div></h1>
+                                 <h1><div id="drag-source10b" draggable="true"><font face="fantasy">10</font></div></h1>
       </div>
       
-      <div style = "position:fixed; right:50px;  top:100px;     width:300px;height:900px;border:3px #CC0000  solid;">
-         <h1><font face="fantasy">2a</font></h1>
+      <div style = "position:fixed; right:50px;  top:100px;     width:450px;height:800px;border:3px #CC0000  solid;">
+         <h1><font face="fantasy">1B</font></h1>
+         <h1><font face="fantasy">1</font></h1>
+         <h1><font face="fantasy">2</font></h1>
+         <h1><font face="fantasy">3</font></h1>
+         <h1><font face="fantasy">4</font></h1>
+         <h1><font face="fantasy">5</font></h1>
+         <h1><font face="fantasy">6</font></h1>
+         <h1><font face="fantasy">7</font></h1>
+         <h1><font face="fantasy">8</font></h1>
+         <h1><font face="fantasy">9</font></h1>
+         <h1><font face="fantasy">10</font></h1>
       </div>
 
-      <div style = "position:fixed; right:50px;  top:20px;     width:300px;height:50px;">
+      <div style = "position:fixed; right:120px;  top:20px;     width:300px;height:50px;">
          <h1><center><font face="fantasy">Status</font></center></h1>
       </div>
 
-      <center><input type="submit" onClick="myClick()"  value="PLAY" class="submit-btn" ></input></center>
-
+      <center><input type="submit" onClick="myClick()"  value="PLAY" class="submit-btn"  ></input></center>
+      
    </body>
 </html>
+
+
 
 
