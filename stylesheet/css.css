@@ -1,4 +1,4 @@
-.submit-btn {
+.submit-btn, .submit-btn2 {
     color: #ffffff;
     background: #82D026;
     font-size: 16px;
@@ -18,9 +18,23 @@
     background: #F27059;
 }
 
-.submit-btn:disabled{
+.submit-btn2:hover {
+    color: black;
+    background: #F27059;
+}
+
+.submit-btn2:disabled{
     opacity: 50%;
     color: black;
     background: #F27059;
     cursor: default;
+}
+
+.submit-btn2{
+    float: right;
+    margin-right: 20px;
+}
+
+body {
+    background: url(https://sports.tms.gov.tw/_/UD/1507391036048432500.jpg);
 }
