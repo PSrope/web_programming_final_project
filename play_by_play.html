@@ -4,9 +4,11 @@
         <meta charset="utf8">
         <title>Play By Play</title>
         <script src="https://kit.fontawesome.com/9a93ec8ea5.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link href="stylesheet/css.css" rel='stylesheet' type='text/css' />
         <link href="stylesheet/gaming.css" rel='stylesheet' type='text/css' />
         <script src="javascript/teams.js"></script>
+        <script src="javascript/global_var.js"></script>
         <style>
             .score_board{
                 display:table;
@@ -58,7 +60,7 @@
                 margin-top: 5px;
                 height: 80%;
             }
-            .outs {
+            #outs {
                 height: calc(30% - 2px);
                 line-height: 30px;
                 font-size: 20px;
@@ -150,18 +152,28 @@
             }
         </style>
         <script>
-            var outs = 0;
+            var n_outs = 0;
             var inning = 1;
+            var determinA = team_choiceA * 10;
+            var determinB = team_choiceB * 10;
 
             function startgame(){
                 for(var i = 0;i < 10;i++){
                     document.getElementById("batterListA").innerHTML +=
-                    "<tr><td>" + team_cs.place[i] + "</td><td>" + team_cs.name[i] + "</td><td>" + team_cs.batting[i] + "</td></tr>";
+                    "<tr><td>" + teams.place[determinA+i] + "</td><td>" + teams.name[determinA+i] + "</td><td>" + teams.batting[determinA+i] + "</td></tr>";
                 }
                 for(var i = 0;i < 10;i++){
                     document.getElementById("batterListB").innerHTML += 
-                    "<tr><td>" + team_cs.place[i] + "</td><td>" + team_cs.name[i] + "</td><td>" + team_cs.batting[i] + "</td></tr>";
+                    "<tr><td>" + teams.place[determinB+i] + "</td><td>" + teams.name[determinB+i] + "</td><td>" + teams.batting[determinB+i] + "</td></tr>";
                 }
+                document.getElementById("innings").innerHTML = "1 <i class='fas fa-caret-up'></i>";
+                document.getElementById("logo1").innerHTML = "<img src='" + team_choiceA + ".jpg'></div>";
+                document.getElementById("logo2").innerHTML = "<img src='" + team_choiceB + ".jpg'></div>";
+                document.getElementById("outs").innerHTML = "<i class='far fa-circle'>&nbsp;</i><i class='far fa-circle'></i>&nbsp;&nbsp;outs";
+                $("#base1").css("background-color", "lightgray");
+                $("#base2").css("background-color", "lightgray");
+                $("#base3").css("background-color", "lightgray");
+                document.getElementById("plays_table").innerHTML = "<tr><td>比賽開始！！</td></tr>";
             }
             window.addEventListener("load", startgame, false);
         </script>
@@ -186,7 +198,7 @@
                         <div id="logo2"><img src="TC.jpg"></div>
                     </div>
 
-                    <div class="outs">
+                    <div id="outs">
                         <i class="fas fa-circle"></i>
                         <i class="far fa-circle"></i>
                         &nbsp;&nbsp;outs

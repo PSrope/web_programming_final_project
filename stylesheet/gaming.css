@@ -67,7 +67,7 @@
     height: 80%;
 }
 
-.outs {
+#outs {
     height: calc(30% - 2px);
     line-height: 30px;
     font-size: 20px;
