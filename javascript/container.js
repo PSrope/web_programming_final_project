@@ -4,12 +4,24 @@ function myClick()
 }
 
 $(document).ready(function() {
+    $("#note_file a").mouseenter(function(){
+        $("#note_file a").css("color","brown");
+        $("#note_file a").html(function(i, origText){
+            return origText + "<font size='2'>說明文件</font>";
+        });
+    })
+    $("#note_file a").mouseleave(function(){
+        $("#note_file a").css("color","black");
+        $("#note_file a").html(''+'<i class="fas fa-book"></i>');
+    });
+
     $("#container").html(''+
     '<h1 align="center"><font face="fantasy">SoftBall Game Simulator</font></h1>' +
     '<img style="display:block; margin:auto;" src="ball.jpeg" border="2"></img>' +
-    '<p align ="center">您將要在五組預設隊伍中選擇兩個隊伍:teamRED 和 teamBLUE 來進行一場對抗賽</p>' +
-    '<div>  ' +
-    '<center><input id="submit-btn" type="submit" onClick="myClick()"  value="Game Start" class="submit-btn" ></input></center>' +
+    '<div style = "position: relative; background-color:rgb(165, 0, 0,0.8); left:420px;   width:660px;height:40px;border:3px #CC0000  solid;">' +
+    '<p><font size="4" face="微軟正黑體" color="white" align ="center">您將要在五組預設隊伍中選擇兩個隊伍:teamRED 和 teamBLUE 來進行一場對抗賽</font></p>' +
+    '<center><input type="submit" onClick="myClick()"  value="Game Start" class="submit-btn" id="submit-btn"></input></center>' +
+    '<br>' +
     '</div>');
     
      $("#submit-btn").click(function() {

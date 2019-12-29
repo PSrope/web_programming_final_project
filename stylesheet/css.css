@@ -38,3 +38,17 @@
 body {
     background: url(https://sports.tms.gov.tw/_/UD/1507391036048432500.jpg);
 }
+
+#note_file {
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 50px;
+    top: 30px;
+    font-size: 30px;
+}
+
+#note_file a {
+    color: black;
+    text-decoration: none;
+}

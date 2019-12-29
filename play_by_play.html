@@ -6,6 +6,7 @@
         <script src="https://kit.fontawesome.com/9a93ec8ea5.js" crossorigin="anonymous"></script>
         <link href="stylesheet/css.css" rel='stylesheet' type='text/css' />
         <link href="stylesheet/gaming.css" rel='stylesheet' type='text/css' />
+        <script src="javascript/teams.js"></script>
         <style>
             .score_board{
                 display:table;
@@ -148,6 +149,22 @@
                 margin-right: 20px;
             }
         </style>
+        <script>
+            var outs = 0;
+            var inning = 1;
+
+            function startgame(){
+                for(var i = 0;i < 10;i++){
+                    document.getElementById("batterListA").innerHTML +=
+                    "<tr><td>" + team_cs.place[i] + "</td><td>" + team_cs.name[i] + "</td><td>" + team_cs.batting[i] + "</td></tr>";
+                }
+                for(var i = 0;i < 10;i++){
+                    document.getElementById("batterListB").innerHTML += 
+                    "<tr><td>" + team_cs.place[i] + "</td><td>" + team_cs.name[i] + "</td><td>" + team_cs.batting[i] + "</td></tr>";
+                }
+            }
+            window.addEventListener("load", startgame, false);
+        </script>
     </head>
 
     <body>
@@ -187,61 +204,6 @@
                 <div class="List_A">
                     <table id="batterListA">
                     <th colspan="3">Team RED</th>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter1</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter2</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter3</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter3</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter4</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter5</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter6</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter7</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter8</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter9</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter10</td>
-                        <td>數值</td>
-                    </tr>
                     </table>                
                 </div>
 
@@ -260,61 +222,6 @@
                 <div class="List_B">
                     <table id="batterListB">
                     <th colspan="3">Team BLUE</th>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter1</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter2</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter3</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter3</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter4</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter5</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter6</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter7</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter8</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter9</td>
-                        <td>數值</td>
-                    </tr>
-                    <tr>
-                        <td>守位</td>
-                        <td>batter10</td>
-                        <td>數值</td>
-                    </tr>
                     </table>
                 </div>
             </div>
