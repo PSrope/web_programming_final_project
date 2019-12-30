@@ -154,17 +154,17 @@
         <script>
             var n_outs = 0;
             var inning = 1;
-            var determinA = team_choiceA * 10;
-            var determinB = team_choiceB * 10;
 
             function startgame(){
                 for(var i = 0;i < 10;i++){
+                    var avg = parseInt((teams.batting[determinA+i] + teams.pitching[determinA+i] + teams.fielding[determinA+i]) / 3, 10);
                     document.getElementById("batterListA").innerHTML +=
-                    "<tr><td>" + teams.place[determinA+i] + "</td><td>" + teams.name[determinA+i] + "</td><td>" + teams.batting[determinA+i] + "</td></tr>";
+                    "<tr><td>" + teams.place[determinA+i] + "</td><td>" + teams.name[determinA+i] + "</td><td>" + avg + "</td></tr>";
                 }
                 for(var i = 0;i < 10;i++){
+                    var avg = parseInt((teams.batting[determinB+i] + teams.pitching[determinB+i] + teams.fielding[determinB+i]) / 3, 10);
                     document.getElementById("batterListB").innerHTML += 
-                    "<tr><td>" + teams.place[determinB+i] + "</td><td>" + teams.name[determinB+i] + "</td><td>" + teams.batting[determinB+i] + "</td></tr>";
+                    "<tr><td>" + teams.place[determinB+i] + "</td><td>" + teams.name[determinB+i] + "</td><td>" + avg + "</td></tr>";
                 }
                 document.getElementById("innings").innerHTML = "1 <i class='fas fa-caret-up'></i>";
                 document.getElementById("logo1").innerHTML = "<img src='" + team_choiceA + ".jpg'></div>";

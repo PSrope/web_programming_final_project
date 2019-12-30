@@ -50,7 +50,7 @@ $(document).ready(function() {
         '   </div>' +
         ' </div>' +
         ' <br>' +
-        ' <center><input type="submit" onClick="myClick()"  value="READY" class="submit-btn" ></input></center>' 
+        ' <center><input type="submit" onClick="myClick2()"  value="READY" class="submit-btn" ></input></center>' 
          );
      });
 });
