@@ -1,4 +1,4 @@
-var team_choiceA = 0;
+var team_choiceA = 2;
 var team_choiceB = 1;
 var determinA = team_choiceA * 10;
 var determinB = team_choiceB * 10;
@@ -13,3 +13,5 @@ var case_type = -1;
 var count_batterA = 0;
 var count_batterB = 0;
 var base_case = 0; // 0: no, 1: 1B, 2: 2B, 3:3B, 4: 1&2B, 5: 1&3B, 6: 2&3B, 7: 123B
+var scoreA = 0;
+var scoreB = 0;
