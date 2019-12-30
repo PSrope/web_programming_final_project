@@ -21,25 +21,34 @@
       </style>
       <script src="javascript/teams.js"></script>
       <script src="javascript/global_var.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script type="text/javascript">
          function myClick()
          {
-            alert("123");
+            a = $("#teamA_drag").find("li").eq(3).html();
+            console.log(a);
          }
 
          function teamset(){
             document.getElementById("status_A").innerHTML = "<h1><font face='fantasy'>位置/名字/打擊/投球/守備</font></h1>";
+            document.getElementById("teamA_drag").innerHTML = "";
             for(var i=0;i <10;i++){
                document.getElementById("status_A").innerHTML +=
                "<h1><font face='fantasy'>" + teams.place[determinA+i] + " " + teams.name[determinA+i] + " " + 
                   teams.batting[determinA+i] + " " + teams.pitching[determinA+i] + " " + teams.fielding[determinA+i] + "</font></h1>";
+               document.getElementById("teamA_drag").innerHTML +=
+               "<li><font size='10' face='微軟正黑體'>" + teams.name[determinA+i] + "</font></li>";
             }
+            
             document.getElementById("status_B").innerHTML = "<h1><font face='fantasy'>位置/名字/打擊/投球/守備</font></h1>";
+            document.getElementById("teamB_drag").innerHTML = "";
             for(var i=0;i <10;i++){
                var avg = parseInt((teams.batting[determinB+i] + teams.pitching[determinB+i] + teams.fielding[determinB+i]) / 3, 10);
                document.getElementById("status_B").innerHTML +=
                "<h1><font face='fantasy'>" + teams.place[determinB+i] + " " + teams.name[determinB+i] + " " + 
                   teams.batting[determinB+i] + " " + teams.pitching[determinB+i] + " " + teams.fielding[determinB+i] + "</font></h1>";
+               document.getElementById("teamB_drag").innerHTML +=
+               "<li><font size='10' face='微軟正黑體'>" + teams.name[determinB+i] + "</font></li>";
             }
          }
 
@@ -61,7 +70,7 @@
       </div>
 
       <div style = "position:absolute; left:470px;  top:250px;  background-color:rgb(226, 255, 60, 0.8);   width:270px;height:650px;border:3px #CC0000  solid;">
-         <ul>
+         <ul id = "teamA_drag">
             <li><font size="10" face="微軟正黑體">塔史亮</font></li>
             <li><font size="10" face="微軟正黑體">進藤光</font></li>
             <li><font size="10" face="微軟正黑體">出木衫</font></li>
@@ -75,7 +84,7 @@
          </ul>
 
          <div style = "position: relative; left:300px;  bottom:675px;   background-color:rgb(226, 255, 60, 0.8);  width:270px;height:650px;border:3px #CC0000  solid;"> 
-            <ul>
+            <ul id = "teamB_drag">
                <li><font size="10" face="微軟正黑體">黑體-繁</font></li>
                <li><font size="10" face="微軟正黑體">微軟正黑</font></li>
                <li><font size="10" face="微軟雅黑體">微軟雅黑</font></li>
