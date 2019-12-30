@@ -23,11 +23,15 @@
       <script src="javascript/global_var.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script type="text/javascript">
-         function myClick()
-         {
-            a = $("#teamA_drag").find("li").eq(3).val();
-            
-            console.log(a);
+         function myClick3(){  
+            for(var i = 0;i < 10;i++){
+               orderA[i] = $("#teamA_drag").find("li").eq(i).val();
+               console.log(orderA[i]);
+            }
+            for(var i = 0;i < 10;i++){
+               orderB[i] = $("#teamB_drag").find("li").eq(i).val();
+               console.log(orderB[i]);
+            }
          }
 
          function teamset(){
@@ -72,30 +76,10 @@
 
       <div style = "position:absolute; left:470px;  top:250px;  background-color:rgb(226, 255, 60, 0.8);   width:270px;height:650px;border:3px #CC0000  solid;">
          <ul id = "teamA_drag">
-            <li><font size="10" face="微軟正黑體">塔史亮</font></li>
-            <li><font size="10" face="微軟正黑體">進藤光</font></li>
-            <li><font size="10" face="微軟正黑體">出木衫</font></li>
-            <li><font size="10" face="微軟正黑體">源靜香</font></li>
-            <li><font size="10" face="微軟正黑體">野比大雄</font></li>
-            <li><font size="10" face="微軟正黑體">茂野吾郎</font></li>
-            <li><font size="10" face="微軟正黑體">兩津勘吉</font></li>
-            <li><font size="10" face="微軟正黑體">張作霖</font></li>
-            <li><font size="10" face="微軟正黑體">張葦航</font></li>
-            <li><font size="10" face="微軟正黑體">張家航</font></li>
          </ul>
 
          <div style = "position: relative; left:300px;  bottom:675px;   background-color:rgb(226, 255, 60, 0.8);  width:270px;height:650px;border:3px #CC0000  solid;"> 
             <ul id = "teamB_drag">
-               <li><font size="10" face="微軟正黑體">黑體-繁</font></li>
-               <li><font size="10" face="微軟正黑體">微軟正黑</font></li>
-               <li><font size="10" face="微軟雅黑體">微軟雅黑</font></li>
-               <li><font size="10" face="微軟正黑體">絲絲蛇</font></li>
-               <li><font size="10" face="微軟正黑體">快樂風男</font></li>
-               <li><font size="10" face="微軟正黑體">乞丐大劍</font></li>
-               <li><font size="10" face="微軟正黑體">剁</font></li>
-               <li><font size="10" face="微軟正黑體">嬰靈</font></li>
-               <li><font size="10" face="微軟正黑體">極靈</font></li>
-               <li><font size="10" face="微軟正黑體">盧錫恩</font></li>
             </ul>
             <br/>
          </div>
@@ -103,17 +87,6 @@
 
 
       <div id="status_A" style = "position:absolute; left:50px;  top:100px;   background-color:rgb(165, 0, 0,0.8);  width:400px;height:800px;border:3px #CC0000  solid;">
-         <h1><font face="fantasy">1A</font></h1>
-         <h1><font face="fantasy">1</font></h1>
-         <h1><font face="fantasy">2</font></h1>
-         <h1><font face="fantasy">3</font></h1>
-         <h1><font face="fantasy">4</font></h1>
-         <h1><font face="fantasy">5</font></h1>
-         <h1><font face="fantasy">6</font></h1>
-         <h1><font face="fantasy">7</font></h1>
-         <h1><font face="fantasy">8</font></h1>
-         <h1><font face="fantasy">9</font></h1>
-         <h1><font face="fantasy">10</font></h1>
       </div>
 
       <div style = "position:absolute; left:95px;  top:20px;     width:300px;height:50px;">
@@ -128,17 +101,6 @@
 
       
       <div id="status_B" style = "position:absolute; left: 1065px;  top:100px;  background-color:rgb(0, 0, 165,0.8);   width:400px;height:800px;border:3px #CC0000  solid;">
-         <h1><font face="fantasy">1B</font></h1>
-         <h1><font face="fantasy">1</font></h1>
-         <h1><font face="fantasy">2</font></h1>
-         <h1><font face="fantasy">3</font></h1>
-         <h1><font face="fantasy">4</font></h1>
-         <h1><font face="fantasy">5</font></h1>
-         <h1><font face="fantasy">6</font></h1>
-         <h1><font face="fantasy">7</font></h1>
-         <h1><font face="fantasy">8</font></h1>
-         <h1><font face="fantasy">9</font></h1>
-         <h1><font face="fantasy">10</font></h1>
       </div>
 
       <div style = "position:absolute; left: 1115px;  top:20px;     width:300px;height:50px;">
@@ -152,18 +114,16 @@
          $("ul").dragsort();
        </script>
    
-   <input name="list1SortOrder" type="hidden" />
-   <script type="text/javascript">
-       function saveOrder() {
-           var data = $("#list1 li").map(function() { return $(this).children().html(); }).get();
-           $("input[name=list1SortOrder]").val(data.join("|"));
-       };
-   </script>
-   </div>
+      <input name="list1SortOrder" type="hidden" />
+      <script type="text/javascript">
+          function saveOrder() {
+              var data = $("#list1 li").map(function() { return $(this).children().html(); }).get();
+              $("input[name=list1SortOrder]").val(data.join("|"));
+          };
+      </script>
+      </div>
 
-
-      <input type="submit" onClick="myClick()"  value="PLAY" class="submit-btn" style="position: relative; left: 650px;"></input>
-      
+      <input type="submit" onClick="myClick3()"  value="PLAY" class="submit-btn" id="submit-btn3" style="position: relative; left: 650px;"></input>
    </body>
 </html>
 

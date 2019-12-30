@@ -50,7 +50,54 @@ $(document).ready(function() {
         '   </div>' +
         ' </div>' +
         ' <br>' +
-        ' <center><input type="submit" onClick="myClick2()"  value="READY" class="submit-btn" ></input></center>' 
+        ' <center><input type="submit" onClick="myClick2()" value="READY" class="submit-btn" id="submit-btn2"></input></center>'
          );
      });
+
+    $(document).on("click", "#submit-btn2", function() {
+        $("#container").html('' +
+        '<div style="position: relative; left: 650px;">' +
+        '<h1><font face="fantasy">Check Player:</font></h1>' +
+        ' </div>' +
+        ' <div style="margin:0px auto;">' +
+        ' <div style = "position: absolute; left:595px;  top:120px;    width:200px;height:40px;">' +
+        '    <h1><font face="fantasy">Team Red</font></h1>' +
+        ' </div>' +
+        ' <div style = "position:absolute; left:470px;  top:200px;  background-color:rgb(226, 255, 60, 0.8);   width:270px;height:700px;border:3px #CC0000  solid;">' +
+        '    <ul id = "teamA_drag">' +
+        '    </ul>' +
+        '    <div style = "position: relative; left:300px;  bottom:695px;   background-color:rgb(226, 255, 60, 0.8);  width:270px;height:700px;border:3px #CC0000  solid;"> ' +
+        '       <ul id = "teamB_drag">' +
+        '       </ul>' +
+        '       <br/>' +
+        '    </div>' +
+        ' </div>' +
+        ' <div id="status_A" style = "position:absolute; left:50px;  top:100px;   background-color:rgb(165, 0, 0,0.8);  width:400px;height:800px;border:3px #CC0000  solid;">' +
+        ' </div>' +
+        ' <div style = "position:absolute; left:95px;  top:20px;     width:300px;height:50px;">' +
+        '    <h1><center><font face="fantasy">Status</font></center></h1>' +
+        ' </div>' +
+        '   <div style = "position:absolute; left: 785px;  top:120px;    width:200px;height:40px;">' +
+        '    <h1><font face="fantasy">Team Blue</font></h1>' +
+        '   </div>' +
+        ' <div id="status_B" style = "position:absolute; left: 1065px;  top:100px;  background-color:rgb(0, 0, 165,0.8);   width:400px;height:800px;border:3px #CC0000  solid;">' +
+        ' </div>' +
+        ' <div style = "position:absolute; left: 1115px;  top:20px;     width:300px;height:50px;">' +
+        '    <h1><center><font face="fantasy">Status</font></center></h1>' +
+        ' </div>' +
+        '<script type="text/javascript">' +
+        ' $("ul").dragsort();' +
+        '</script>' +
+        ' <input name="list1SortOrder" type="hidden" />' +
+        ' <script type="text/javascript">' +
+        '     function saveOrder() {' +
+        '         var data = $("#list1 li").map(function() { return $(this).children().html(); }).get();' +
+        '         $("input[name=list1SortOrder]").val(data.join("|"));' +
+        '     };' +
+        ' </script>' +
+        ' </div>' +
+        ' <input type="submit" onClick="myClick3()"  value="PLAY" class="submit-btn" id="submit-btn3" style="position: relative; left: 650px;"></input>'
+        );
+        teamset();
+     })
 });
