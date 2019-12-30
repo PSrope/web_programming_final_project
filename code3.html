@@ -25,7 +25,8 @@
       <script type="text/javascript">
          function myClick()
          {
-            a = $("#teamA_drag").find("li").eq(3).html();
+            a = $("#teamA_drag").find("li").eq(3).val();
+            
             console.log(a);
          }
 
@@ -37,9 +38,9 @@
                "<h1><font face='fantasy'>" + teams.place[determinA+i] + " " + teams.name[determinA+i] + " " + 
                   teams.batting[determinA+i] + " " + teams.pitching[determinA+i] + " " + teams.fielding[determinA+i] + "</font></h1>";
                document.getElementById("teamA_drag").innerHTML +=
-               "<li><font size='10' face='微軟正黑體'>" + teams.name[determinA+i] + "</font></li>";
+               "<li value='" + (determinA + i) + "'><font size='10' face='微軟正黑體'>" + teams.name[determinA+i] + "</font></li>";
             }
-            
+
             document.getElementById("status_B").innerHTML = "<h1><font face='fantasy'>位置/名字/打擊/投球/守備</font></h1>";
             document.getElementById("teamB_drag").innerHTML = "";
             for(var i=0;i <10;i++){
@@ -48,7 +49,7 @@
                "<h1><font face='fantasy'>" + teams.place[determinB+i] + " " + teams.name[determinB+i] + " " + 
                   teams.batting[determinB+i] + " " + teams.pitching[determinB+i] + " " + teams.fielding[determinB+i] + "</font></h1>";
                document.getElementById("teamB_drag").innerHTML +=
-               "<li><font size='10' face='微軟正黑體'>" + teams.name[determinB+i] + "</font></li>";
+               "<li value='" + (determinB + i) + "'><font size='10' face='微軟正黑體'>" + teams.name[determinB+i] + "</font></li>";
             }
          }
 
