@@ -172,3 +172,134 @@
     height: 634px;
     margin: 0 auto; 
  }
+
+ .result_box {
+    display:table;
+    overflow:auto;
+    width: 96%;
+    height: 25%;
+    margin-top: 15px;
+    margin-left: 2%;
+    font-family: fantasy;
+}
+
+#score_record {
+    position: relative;
+    height: 30%;
+    margin-bottom: 0px;
+    font-size: 45px;
+    left: 493px;
+    line-height: 38px;
+    width: 230px;
+}
+
+#team1, #team2, #score {
+    margin-top: 5px;
+    height: 80%;
+}
+
+.s_board {
+    margin-top: 8px;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+.s_board td{
+    width: 30px;
+    height:30px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.s_board tr:nth-child(1) {
+    background-color: #dddddd;
+}
+
+.s_board tr:nth-child(2), .s_board tr:nth-child(3) {
+    background-color: lightgreen;
+}
+
+#resultA_logo, #resultB_logo {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    margin-top: 14px;
+    border-radius: 15px 15px 15px 15px;
+}
+#resultA_logo {
+    margin-left: 120px;
+    border: rgb(165, 0, 0) 3px solid;
+    background-color: rgb(165, 0, 0);
+    background-repeat: no-repeat;
+    background-image: url(CT.gif);
+    background-size: contain;
+    box-shadow: -10px -6px 8px 0px rgb(73, 73, 73);
+}
+#resultB_logo {
+    margin-left: 918px;
+    border: rgb(0, 0, 165) 3px solid;
+    background-color: rgb(0, 0, 165);
+    background-repeat: no-repeat;
+    background-image: url(TC.jpg);
+    background-size: contain;
+    box-shadow: 10px -6px 8px 0px rgb(73, 73, 73);
+}
+#PbyP #plays {
+    padding: 0px;
+    position: relative;
+    width: 1164px;
+    height: 350px;
+    top: 15px;
+    left: 0px;
+    background-color: rgba(211, 211, 211, 0.8);
+    overflow: auto;
+}
+#PbyP #plays:hover {
+    background-color: rgba(211, 211, 211, 1);
+}
+#plays_table tr{
+    vertical-align: top;
+}
+
+.just_div {
+    padding: 0px;
+    position: relative;
+    width: 1164px;
+    height: 350px;
+    top: 15px;
+    left: 0px;
+    background-color: none;
+    overflow: auto;
+}
+
+#TeamA_batter, #TeamB_batter {
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+#TeamA_batter td, #TeamB_batter td{
+    top: 10px;
+    position: relative;
+    width: 60px;
+    height:30px;
+    text-align: center;
+    font-size: 18px;
+
+}
+
+#TeamA_batter tr:nth-child(odd), #TeamB_batter tr:nth-child(odd) {
+    background-color: lightgray;
+}
+
+#TeamA_batter tr:nth-child(even), #TeamB_batter tr:nth-child(even) {
+    background-color: rgb(167, 167, 167);
+}
+
+#TeamA_batter tr:nth-child(1) {
+    background-color: rgb(165, 0, 0);
+    color: lightgray;
+}
+#TeamB_batter tr:nth-child(1) {
+    background-color: rgb(0, 0, 165);
+    color: lightgray;
+}

@@ -50,7 +50,7 @@ $(document).ready(function() {
         '   </div>' +
         ' </div>' +
         ' <br>' +
-        ' <center><input type="submit" onClick="myClick2()" value="READY" class="submit-btn" id="submit-btn2"></input></center>'
+        ' <center><input type="submit" value="READY" class="submit-btn" id="submit-btn2"></input></center>'
          );
      });
 
@@ -99,5 +99,136 @@ $(document).ready(function() {
         ' <input type="submit" onClick="myClick3()"  value="PLAY" class="submit-btn" id="submit-btn3" style="position: relative; left: 650px;"></input>'
         );
         teamset();
-     })
+     });
+
+     $(document).on("click", "#submit-btn3", function(){
+         $("#container").html('' +
+        ' <h1 align="center"><font face="fantasy">Play By Play</font></h1>' +
+        ' <div id="bgset">' +
+        '     <div class="score_board">' +
+        '         <div class="innings" id="innings">' +
+        '             1' +
+        '             <i class="fas fa-caret-up"></i>' +
+        '             <i class="fas fa-caret-down"></i>' +
+        '         </div>' +
+        '         <div class="scoreboard">' +
+        '             <div class="score_box">' +
+        '                 <div id="logo1"><img src="CT.gif"></div>' +
+        '                 <div id="team1" style="color: rgb(165, 0, 0);">R</div>' +
+        '                 <div id="score">0 ： 0</div>' +
+        '                 <div id="team2" style="color: rgb(0, 0, 165);">B</div>' +
+        '                 <div id="logo2"><img src="TC.jpg"></div>' +
+        '             </div>' +
+        '             <div id="outs">' +
+        '                 <i class="fas fa-circle"></i>' +
+        '                 <i class="far fa-circle"></i>' +
+        '                 &nbsp;&nbsp;outs' +
+        '             </div>' +
+        '         </div>' +
+        '         <div class="bases">' +
+        '             <div id="base3"></div>' +
+        '             <div id="base2"></div>' +
+        '             <div id="base1"></div>' +
+        '         </div>' +
+        '     </div>' +
+        '     <br>' +
+        '     <div class="gamePlace">' +
+        '         <div class="List_A">' +
+        '             <table id="batterListA">' +
+        '             <th colspan="3">Team RED</th>' +
+        '             </table>                ' +
+        '         </div>' +
+        '         <div id="plays">' +
+        '             <table id="plays_table">' +
+        '                 <tr style="display: none;">' +
+        '                     <td>安打啦</td>' +
+        '                 </tr>' +
+        '                 <tr >' +
+        '                     <td>安打啦</td>' +
+        '                 </tr>' +
+        '             </table>' +
+        '         </div>' +
+        '         <div class="List_B">' +
+        '             <table id="batterListB">' +
+        '             <th colspan="3">Team BLUE</th>' +
+        '             </table>' +
+        '         </div>' +
+        '     </div>' +
+        '     <br>' +
+        '     <input type="button" id="finalPage" value="Next" class="submit-btn2" disabled >' +
+        '     <input type="button" id="skip" value="Quick End" class="submit-btn2">' +
+        ' </div>'
+         );
+         startgame();
+     });
+
+     $(document).on("click", "#finalPage", function(){
+        $("#container").html('' + 
+        '<h1 align="center"><font face="fantasy">Result Box</font></h1>' +
+        '<div id="bgset">' +
+        '    <div class="result_box">' +
+        '        <div id="resultA_logo"></div>' +
+        '        <div id="resultB_logo"></div>' +
+        '        <div id="score_record">' +
+        '            <div id="team1" style="color: rgb(165, 0, 0);">R</div>' +
+        '            <div id="score" style="font-size: 32px;">&nbsp;7 ： 9&nbsp;</div>' +
+        '            <div id="team2" style="color: rgb(0, 0, 165);">B</div>' +
+        '        </div>' +
+        '        <table class="s_board" id="result_table" rules = none>' +
+        '        </table>' +
+        '    </div>' +
+        '    <br>' +
+        '    <input type="button" value="Back to Index" class="submit-btn2" id="toIndex">' +
+        '    <ul class="nav nav-tabs" style="width: 96%; margin: auto;">' +
+        '        <li class="active" style="font-family: fantasy; color: darkslategrey;"><a data-toggle="tab" href="#PbyP">Play By Play</a></li>' +
+        '        <li><a data-toggle="tab" href="#TA" style="font-family: fantasy; color: darkslategrey;">Team Red</a></li>' +
+        '        <li><a data-toggle="tab" href="#TB" style="font-family: fantasy; color: darkslategrey;">Team Blue</a></li>' +
+        '    </ul>' +
+        '    <div class="tab-content" style="width: 96%; margin: auto;">' +
+        '        <div id="PbyP" class="tab-pane fade in active">' +
+        '          <div id="plays">' +
+        '            <table id="plays_table">' +
+        '            </table>' +
+        '          </div>' +
+        '        </div>' +
+        '        <div id="TA" class="tab-pane fade">' +
+        '            <div class="just_div">' +
+        '                <table id="TeamA_batter">' +
+        '                </table>' +
+        '            </div>' +
+        '        </div>' +
+        '        <div id="TB" class="tab-pane fade">' +
+        '            <div class="just_div">' +
+        '                <table id="TeamB_batter">' +
+        '                </table>' +
+        '            </div>' +
+        '        </div>' +
+        '    </div>' +
+        '</div>' 
+        );
+        boxset();
+     });
+
+     $(document).on("click", "#toIndex", function(){
+        $("#ontainer").html(''+
+        '<h1 align="center"><font face="fantasy">SoftBall Game Simulator</font></h1>' +
+        '<img style="display:block; margin:auto;" src="ball.jpeg" border="2"></img>' +
+        '<div style = "position: relative; background-color:rgb(165, 0, 0,0.8);  margin: auto; width:660px;height:40px;border:3px #CC0000  solid;">' +
+        '<p><font size="4" face="微軟正黑體" color="white" align ="center">您將要在五組預設隊伍中選擇兩個隊伍:teamRED 和 teamBLUE 來進行一場對抗賽</font></p>' +
+        '<center><input type="submit" onClick="myClick1()"  value="Game Start" class="submit-btn" id="submit-btn"></input></center>' +
+        '<br>' +
+        '</div>')
+     });
+
+     $("#toIndex").click(function(){
+         $("#container").html(''+
+         '<h1 align="center"><font face="fantasy">SoftBall Game Simulator</font></h1>' +
+         '<img style="display:block; margin:auto;" src="ball.jpeg" border="2"></img>' +
+         '<div style = "position: relative; background-color:rgb(165, 0, 0,0.8);  margin: auto; width:660px;height:40px;border:3px #CC0000  solid;">' +
+         '<p><font size="4" face="微軟正黑體" color="white" align ="center">您將要在五組預設隊伍中選擇兩個隊伍:teamRED 和 teamBLUE 來進行一場對抗賽</font></p>' +
+         '<center><input type="submit" onClick="myClick1()"  value="Game Start" class="submit-btn" id="submit-btn"></input></center>' +
+         '<br>' +
+         '</div>');
+     });
+
 });

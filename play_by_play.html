@@ -9,6 +9,7 @@
         <link href="stylesheet/gaming.css" rel='stylesheet' type='text/css' />
         <script src="javascript/teams.js"></script>
         <script src="javascript/global_var.js"></script>
+        <script src="javascript/functions.js"></script>
         <style>
             .score_board{
                 display:table;
@@ -173,6 +174,7 @@
                 document.getElementById("plays_table").innerHTML = "<tr><td>比賽開始！！</td></tr><tr><td>1局上半</td></tr>";
                 allcases();
             }
+            
             function allcases(){
                 while(1){
                     scoreA = 0;
@@ -1006,8 +1008,8 @@
                 </div>
             </div>
             <br>
-            <input type="button" value="Next" class="submit-btn2" disabled onclick="result()">
-            <input type="button" value="Quick End" class="submit-btn2" onclick="end()">
+            <input type="button" id="finalPage" value="Next" class="submit-btn2" disabled onclick="result()">
+            <input type="button" id="skip" value="Quick End" class="submit-btn2" onclick="end()">
         </div>
     </body>
 </html>

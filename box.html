@@ -7,6 +7,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="javascript/global_var.js"></script>
+        <script src="javascript/functions.js"></script>
+        <script src="javascript/teams.js"></script>
 
         <style>
             .result_box {
@@ -141,6 +144,34 @@
             }
 
         </style>
+        <script>
+            function boxset(){
+                $("#resultA_logo").css("background-image", "url(" + team_choiceA + ".jpg)");
+                $("#resultB_logo").css("background-image", "url(" + team_choiceB + ".jpg)");
+                $("#score").html("&nbsp;" + scoreA + " ： " + scoreB + "&nbsp;");
+                document.getElementById("result_table").innerHTML = "<tr><td style='width: 200px;''> </td><td>R</td><td>H</td><td>HR</td></tr>";
+                var H_A = 0, H_B = 0, HR_A = 0, HR_B = 0;
+                for(var i = 0;i < 10;i++){
+                    H_A += teams.H[determinA+i];
+                    HR_A += teams.HR[determinA+i];
+                    H_B += teams.H[determinB+i];
+                    HR_B += teams.HR[determinB+i];
+                }
+                document.getElementById("result_table").innerHTML += "<tr><td>" + teams.team_name[team_choiceA] + "</td><td>" + scoreA + "</td><td>" + H_A + "</td><td>" + HR_A + "</td></tr>";
+                document.getElementById("result_table").innerHTML += "<tr><td>" + teams.team_name[team_choiceB] + "</td><td>" + scoreB + "</td><td>" + H_B + "</td><td>" + HR_B + "</td></tr>";
+                $("#plays_table").html(text_copy);
+                $("#TeamA_batter").html("<tr><td style='width: 300px;'></td><td>AB</td><td>H</td><td>RBI</td><td>BB</td><td>SO</td><td>HR</td></tr>");
+                $("#TeamB_batter").html("<tr><td style='width: 300px;'></td><td>AB</td><td>H</td><td>RBI</td><td>BB</td><td>SO</td><td>HR</td></tr>");
+                for(var i = 0; i < 10; i++) {
+                    document.getElementById("TeamA_batter").innerHTML +=
+                    "<td style='text-align: left; text-indent: 10px; text-indent: 5px;'>" + teams.name[determinA+i] + "</td><td>" + teams.AB[determinA+i] + "</td><td>" + teams.H[determinA+i] + "</td><td>" + teams.RBI[determinA+i] + "</td><td>" + teams.BB[determinA+i] + "</td><td>" + teams.SO[determinA+i] + "</td><td>" + teams.HR[determinA+i] + "</td>";
+                    document.getElementById("TeamB_batter").innerHTML +=
+                    "<td style='text-align: left; text-indent: 10px; text-indent: 5px;'>" + teams.name[determinB+i] + "</td><td>" + teams.AB[determinB+i] + "</td><td>" + teams.H[determinB+i] + "</td><td>" + teams.RBI[determinB+i] + "</td><td>" + teams.BB[determinB+i] + "</td><td>" + teams.SO[determinB+i] + "</td><td>" + teams.HR[determinB+i] + "</td>";
+                }
+            }
+
+            window.addEventListener("load", boxset, false);
+        </script>
     </head>
 
     <body>
@@ -150,11 +181,11 @@
                 <div id="resultA_logo"></div>
                 <div id="resultB_logo"></div>
                 <div id="score_record">
-                    <div id="team1" style="color: rgb(165, 0, 0);">A</div>
+                    <div id="team1" style="color: rgb(165, 0, 0);">R</div>
                     <div id="score" style="font-size: 32px;">&nbsp;7 ： 9&nbsp;</div>
                     <div id="team2" style="color: rgb(0, 0, 165);">B</div>
                 </div>
-                <table class="s_board" rules = none>
+                <table class="s_board" id="result_table" rules = none>
                     <tr>
                         <td style="width: 200px;"> </td>
                         <td>1</td>
