@@ -154,14 +154,14 @@
         <script>
             function startgame(){
                 for(var i = 0;i < 10;i++){
-                    var avg = parseInt((teams.batting[determinA+i] + teams.pitching[determinA+i] + teams.fielding[determinA+i]) / 3, 10);
+                    var avg = parseInt((teams.batting[orderA[i] + determinA] + teams.pitching[orderA[i] + determinA] + teams.fielding[orderA[i] + determinA]) / 3, 10);
                     document.getElementById("batterListA").innerHTML +=
-                    "<tr><td>" + teams.place[determinA+i] + "</td><td>" + teams.name[determinA+i] + "</td><td>" + avg + "</td></tr>";
+                    "<tr><td>" + teams.place[orderA[i] + determinA] + "</td><td>" + teams.name[orderA[i] + determinA] + "</td><td>" + avg + "</td></tr>";
                 }
                 for(var i = 0;i < 10;i++){
-                    var avg = parseInt((teams.batting[determinB+i] + teams.pitching[determinB+i] + teams.fielding[determinB+i]) / 3, 10);
+                    var avg = parseInt((teams.batting[orderB[i] + determinB] + teams.pitching[orderB[i] + determinB] + teams.fielding[orderB[i] + determinB]) / 3, 10);
                     document.getElementById("batterListB").innerHTML += 
-                    "<tr><td>" + teams.place[determinB+i] + "</td><td>" + teams.name[determinB+i] + "</td><td>" + avg + "</td></tr>";
+                    "<tr><td>" + teams.place[orderB[i] + determinB] + "</td><td>" + teams.name[orderB[i] + determinB] + "</td><td>" + avg + "</td></tr>";
                 }
                 document.getElementById("innings").innerHTML = "1 <i class='fas fa-caret-up'></i>";
                 document.getElementById("logo1").innerHTML = "<img src='" + team_choiceA + ".jpg'></div>";
@@ -171,29 +171,394 @@
                 $("#base2").css("background-color", "lightgray");
                 $("#base3").css("background-color", "lightgray");
                 document.getElementById("plays_table").innerHTML = "<tr><td>比賽開始！！</td></tr>";
-                allcase();
+                allcases();
             }
+            var x = 0;
             function allcases(){
-                if(count_out == 3){
-                    count_out = 0;
-                    document.getElementById("plays_table").innerHTML += "<tr><td>三人出局！</td></tr>";
-                    if(inning == 7 && half == 1){
-                        document.getElementById("plays_table").innerHTML += "<tr><td>比賽結束！</td></tr>";
-                        inning = 1; half = 0;
-                    } else {
-                        document.getElementById("plays_table").innerHTML += "<tr><td>攻守交換！</td></tr>";
-                        inning++;
-                        if(half == 0){
-                            half = 1;
-                        }else{
-                            half = 0;
-                        }
+                while( x < 40){
+                    x++;
+                    if(count_out == 1){
+                        document.getElementById("outs").innerHTML = "<i class='fas fa-circle'>&nbsp;</i><i class='far fa-circle'></i>&nbsp;&nbsp;outs";
                     }
+                    if(count_out == 2){
+                        document.getElementById("outs").innerHTML = "<i class='fas fa-circle'>&nbsp;</i><i class='fas fa-circle'></i>&nbsp;&nbsp;outs";
+                    }
+                    if(count_out == 3){
+                        count_out = 0;
+                        document.getElementById("plays_table").innerHTML += "<tr><td>三人出局！</td></tr>";
+                        $("#base1").css("background-color", "lightgray");
+                        $("#base2").css("background-color", "lightgray");
+                        $("#base3").css("background-color", "lightgray");
+                        if(inning == 13 && half == 1){
+                            document.getElementById("plays_table").innerHTML += "<tr><td>比賽結束！</td></tr>";
+                            inning = 1; half = 0;
+                            break;
+                        } else {
+                            document.getElementById("plays_table").innerHTML += "<tr><td>攻守交換！</td></tr>";
+                            inning++;
+                            if(half == 0){
+                                half = 1;
+                            }else{
+                                half = 0;
+                            }
+                        }
+                        document.getElementById("outs").innerHTML = "<i class='far fa-circle'>&nbsp;</i><i class='far fa-circle'></i>&nbsp;&nbsp;outs";
+                    } else {
+                        if(half == 0){
+                            if(count_batterA == 10){
+                                count_batterA = 0;
+                            }
+                            document.getElementById("innings").innerHTML = (inning / 2 + 0.5) +  " <i class='fas fa-caret-up'></i>";
+                            if(pitcher(teams.pitching[determinA])==1){
+                                if(batter(teams.batting[orderA[count_batterA] + determinA])==1){
+                                    case_type= hit(teams.batting[orderA[count_batterA] + determinA]);
+                                    } else {
+                                        document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒三振出局！！</td></tr>";
+                                        count_out++;
+                                        count_batterA++;
+                                        continue;
+                                        //printf("strike!! out!!");
+                                    }
+                            } else {
+                                document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒獲得四壞球保送</td></tr>";
+                                count_batterA++;
+                            
+                            }
+                            if(case_type!=-1){
+                                if(case_type==0){
+                                    // ((1b acc)+(sf acc)+(rf acc))/3*0.3=擋住球的機率
 
-                }
-                if(count_out != 3){
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 打出一支一壘安打</td></tr>";
+                                    count_batterA++;
+                                    //printf("1b hit!!");
 
+                                    //1bhit(y=1) or 2bhit(y=2) orr 3bhit(y=3)
+                                    //y=(rand()%3)+1;
+                                }
+                                else if(case_type==1){
+                                    // ((2b acc)+(ss acc)+(cf acc))/3*0.3=擋住球的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 揮出了一支二壘安打</td></tr>";
+                                    count_batterA++;
+                                    //printf("2b hit!!");
+
+                                    //lfhit(y=1) or cfhit(y=2) orr rfhit(y=3)
+                                    //y=(rand()%3)+1;
+                                }
+                                else if(case_type==2){
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 全力揮擊!! 這是一支 全！壘！打！</td></tr>";
+                                    count_batterA++;
+                                    //printf("home run!!!");
+                                }
+                                else if(case_type==3){
+                                    // cf acc*0.3=失誤的機率 IF CFE 1個壘包 以此類推
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 打得很高，但是不夠遠，被中外野手接殺出局</td></tr>";
+                                    count_batterA++;
+                                    count_out++;
+                                    //printf("cf fly!!");
+                                }
+                                else if(case_type==4){
+                                      // lf acc*0.3=失誤的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 打高了，左外野手接殺出局</td></tr>";
+                                    count_batterA++;
+                                    count_out++;
+                                    //printf("Lf fly!!");
+                                }
+                                else if(case_type==5){
+                                      // rf acc*0.3=失誤的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 打了一個飛球，被右外野手接殺出局</td></tr>";
+                                    count_batterA++;
+                                    count_out++;
+                                    //printf("Rf fly!!");
+                                }
+                                else if(case_type==6){
+                                      // 3b acc*0.3=失誤的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 打了個高射炮，被三壘手接殺</td></tr>";
+                                    count_batterA++;
+                                    count_out++;
+                                    //printf("3B fly!!");
+                                }
+                                else if(case_type==7){
+                                      // 2b acc*0.3=失誤的機率
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 沒掌握好，打成二壘方向滾地球被刺殺出局</td></tr>";
+                                    count_batterA++;
+                                    count_out++;
+                                    //printf("2B roll!!");
+                                }
+                                else if(case_type==8){
+                                      // sf acc*0.3=失誤的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 打穿二游，可惜被自由手攔截刺殺出局</td></tr>";
+                                    count_batterA++;
+                                    count_out++;
+                                    //printf("sf roll!!");
+                                }
+                                else if(case_type==9)
+                                {
+                                      // ss acc*0.3=失誤的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 切到，形成游擊方向的滾地球被刺殺出局</td></tr>";
+                                    count_batterA++;
+                                    count_out++;
+                                    //printf("ss roll!!");
+                                }
+                                else if(case_type==10)
+                                {
+                                      // p acc*0.3=失誤的機率
+                                    
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 打到投手前方被刺殺出局</td></tr>";
+                                    count_batterA++;
+                                    count_out++;
+                                    //printf("p roll!!");
+                                }
+                                else if(case_type==11)
+                                {
+                                      // 1b acc*0.3=失誤的機率
+                                    
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 一壘方向飛球被接殺出局</td></tr>";
+                                    count_batterA++;
+                                    count_out++;
+                                    //printf("1b fly!!");
+                                }
+                                else if(case_type==12)
+                                {
+                                      // 2b acc*0.3=失誤的機率
+                                    
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 打到二壘上空被接殺出局</td></tr>";
+                                    count_batterA++;
+                                    count_out++;
+                                    //printf("2b fly!!");
+                                }
+                                else if(case_type==13)
+                                {
+                                      // sf acc*0.3=失誤的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 打到內外野上方被自由手接殺出局</td></tr>";
+                                    count_batterA++;
+                                    count_out++;
+                                    //printf("sf fly!!");
+                                }
+                                else if(case_type==14)
+                                {
+                                      // ss acc*0.3=失誤的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterA + 1) + "棒 打到游擊上方被]接殺出局</td></tr>";
+                                    count_batterA++;
+                                    count_out++;
+                                    //printf("ss fly!!");
+                                }
+                            }
+                                
+                        }
+                        else if(half == 1){
+                            if(count_batterB == 10){
+                                    count_batterB = 0;
+                                }
+                            document.getElementById("innings").innerHTML = inning / 2 +  " <i class='fas fa-caret-down'></i>";
+                            if(pitcher(teams.pitching[determinB])==1){
+                                if(batter(teams.batting[orderB[count_batterB] + determinB])==1){
+                                    case_type= hit(teams.batting[orderB[count_batterB] + determinB]);
+                                } else {
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒三振出局！！</td></tr>";
+                                    count_out++;
+                                    count_batterB++;
+                                    continue;
+                                    //printf("strike!! out!!");
+                                }
+                            } else {
+                                document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒獲得四壞球保送</td></tr>";
+                                count_batterB++;
+                            
+                            }
+                            if(case_type!=-1){
+                                if(case_type==0){
+                                    // ((1b acc)+(sf acc)+(rf acc))/3*0.3=擋住球的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 打出一支一壘安打</td></tr>";
+                                    count_batterB++;
+                                    //printf("1b hit!!");
+
+                                    //1bhit(y=1) or 2bhit(y=2) orr 3bhit(y=3)
+                                    //y=(rand()%3)+1;
+                                }
+                                else if(case_type==1){
+                                    // ((2b acc)+(ss acc)+(cf acc))/3*0.3=擋住球的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 揮出了一支二壘安打</td></tr>";
+                                    count_batterB++;
+                                    //printf("2b hit!!");
+
+                                    //lfhit(y=1) or cfhit(y=2) orr rfhit(y=3)
+                                    //y=(rand()%3)+1;
+                                }
+                                else if(case_type==2){
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 全力揮擊!! 這是一支 全！壘！打！</td></tr>";
+                                    count_batterB++;
+                                    //printf("home run!!!");
+                                }
+                                else if(case_type==3){
+                                    // cf acc*0.3=失誤的機率 IF CFE 1個壘包 以此類推
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 打得很高，但是不夠遠，被中外野手接殺出局</td></tr>";
+                                    count_batterB++;
+                                    count_out++;
+                                    //printf("cf fly!!");
+                                }
+                                else if(case_type==4){
+                                      // lf acc*0.3=失誤的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 打高了，左外野手接殺出局</td></tr>";
+                                    count_batterB++;
+                                    count_out++;
+                                    //printf("Lf fly!!");
+                                }
+                                else if(case_type==5){
+                                      // rf acc*0.3=失誤的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 打了一個飛球，被右外野手接殺出局</td></tr>";
+                                    count_batterB++;
+                                    count_out++;
+                                    //printf("Rf fly!!");
+                                }
+                                else if(case_type==6){
+                                      // 3b acc*0.3=失誤的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 打了個高射炮，被三壘手接殺</td></tr>";
+                                    count_batterB++;
+                                    count_out++;
+                                    //printf("3B fly!!");
+                                }
+                                else if(case_type==7){
+                                      // 2b acc*0.3=失誤的機率
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 沒掌握好，打成二壘方向滾地球被刺殺出局</td></tr>";
+                                    count_batterB++;
+                                    count_out++;
+                                    //printf("2B roll!!");
+                                }
+                                else if(case_type==8){
+                                      // sf acc*0.3=失誤的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 打穿二游，可惜被自由手攔截刺殺出局</td></tr>";
+                                    count_batterB++;
+                                    count_out++;
+                                    //printf("sf roll!!");
+                                }
+                                else if(case_type==9)
+                                {
+                                      // ss acc*0.3=失誤的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 切到，形成游擊方向的滾地球被刺殺出局</td></tr>";
+                                    count_batterB++;
+                                    count_out++;
+                                    //printf("ss roll!!");
+                                }
+                                else if(case_type==10)
+                                {
+                                      // p acc*0.3=失誤的機率
+                                    
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 打到投手前方被刺殺出局</td></tr>";
+                                    count_batterB++;
+                                    count_out++;
+                                    //printf("p roll!!");
+                                }
+                                else if(case_type==11)
+                                {
+                                      // 1b acc*0.3=失誤的機率
+                                    
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 一壘方向飛球被接殺出局</td></tr>";
+                                    count_batterB++;
+                                    count_out++;
+                                    //printf("1b fly!!");
+                                }
+                                else if(case_type==12)
+                                {
+                                      // 2b acc*0.3=失誤的機率
+                                    
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 打到二壘上空被接殺出局</td></tr>";
+                                    count_batterB++;
+                                    count_out++;
+                                    //printf("2b fly!!");
+                                }
+                                else if(case_type==13)
+                                {
+                                      // sf acc*0.3=失誤的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 打到內外野上方被自由手接殺出局</td></tr>";
+                                    count_batterB++;
+                                    count_out++;
+                                    //printf("sf fly!!");
+                                }
+                                else if(case_type==14)
+                                {
+                                      // ss acc*0.3=失誤的機率
+
+                                    document.getElementById("plays_table").innerHTML += "<tr><td>第" + (count_batterB + 1) + "棒 打到游擊上方被]接殺出局</td></tr>";
+                                    count_batterB++;
+                                    count_out++;
+                                    //printf("ss fly!!");
+                                }
+                            
+                            }
+                        }
+                    //////////////////////////////////////////////////
+                    
+                    base_case = basepush(base_case, case_type);
+                    }
+                }//~~~~~~~~~~~~~~~~~~~~~~~~~
+            }
+            function pitcher(acc){
+                var a, range;
+                a = Math.floor(Math.random() * 100) + 1; //x=1~100
+                range = 20 + acc / 10 * 8;
+                if(a <= range){
+                    return 1;
                 }
+                return 0;
+            }
+            function batter(str){
+                var b, range;
+                b = Math.floor(Math.random() * 100) + 1; //x=1~100
+                range = 10 + str / 10 * 9;
+
+                if(b <= range){
+                    return 1;
+                }
+                else if(b > range){
+                    return 0;
+                }
+            }
+            function hit(str){
+                var x,y;
+                x = Math.floor(Math.random() * 100) + 1; //x=1~100
+                if(1 <= x && x <= 10 && str >= 70){
+                    return 2;// homerun
+                }
+                else if(20 <= x && x <= 35 && str >= 50){
+                    return 1;//2b
+                }
+                else if(35 <= x && x <= 70){
+                    return 0;//1b
+                } else {
+                    if(1 <= x && x <= 10){
+                        y = Math.floor(Math.random() * 4) + 3;//y=3~6
+                        return y;
+                    }
+                    else if(20 <= x && x <= 35){
+                        y=Math.floor(Math.random() * 3) +7;//y=7~9
+                        return y;
+                    }
+                    else{
+                        y = Math.floor(Math.random() * 5) + 10; //y=10~14
+                        return y;
+                    }
+                }
+            }
+            function basepush(base, type){
+
             }
             window.addEventListener("load", startgame, false);
         </script>
