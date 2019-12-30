@@ -152,9 +152,6 @@
             }
         </style>
         <script>
-            var n_outs = 0;
-            var inning = 1;
-
             function startgame(){
                 for(var i = 0;i < 10;i++){
                     var avg = parseInt((teams.batting[determinA+i] + teams.pitching[determinA+i] + teams.fielding[determinA+i]) / 3, 10);
@@ -174,6 +171,29 @@
                 $("#base2").css("background-color", "lightgray");
                 $("#base3").css("background-color", "lightgray");
                 document.getElementById("plays_table").innerHTML = "<tr><td>比賽開始！！</td></tr>";
+                allcase();
+            }
+            function allcases(){
+                if(count_out == 3){
+                    count_out = 0;
+                    document.getElementById("plays_table").innerHTML += "<tr><td>三人出局！</td></tr>";
+                    if(inning == 7 && half == 1){
+                        document.getElementById("plays_table").innerHTML += "<tr><td>比賽結束！</td></tr>";
+                        inning = 1; half = 0;
+                    } else {
+                        document.getElementById("plays_table").innerHTML += "<tr><td>攻守交換！</td></tr>";
+                        inning++;
+                        if(half == 0){
+                            half = 1;
+                        }else{
+                            half = 0;
+                        }
+                    }
+
+                }
+                if(count_out != 3){
+
+                }
             }
             window.addEventListener("load", startgame, false);
         </script>
