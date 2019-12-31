@@ -875,3 +875,33 @@ function boxset(){
        "<td style='text-align: left; text-indent: 10px; text-indent: 5px;'>" + teams.name[determinB+i] + "</td><td>" + teams.AB[determinB+i] + "</td><td>" + teams.H[determinB+i] + "</td><td>" + teams.RBI[determinB+i] + "</td><td>" + teams.BB[determinB+i] + "</td><td>" + teams.SO[determinB+i] + "</td><td>" + teams.HR[determinB+i] + "</td>";
    }
 }
+
+function refresh(){
+   team_choiceA = 0;
+   team_choiceB = 0;
+   determinA = team_choiceA * 10;
+   determinB = team_choiceB * 10;
+   orderA = new Array(10);
+   orderB = new Array(10);
+   orderA = [0,0,0,0,0,0,0,0,0,0];
+   orderB = [0,0,0,0,0,0,0,0,0,0];
+   count_out = 0;
+   inning = 1;
+   half = 0;
+   case_type = -1;
+   count_batterA = 0;
+   count_batterB = 0;
+   base_case = 0; // 0: no, 1: 1B, 2: 2B, 3:3B, 4: 1&2B, 5: 1&3B, 6: 2&3B, 7: 123B
+   scoreA = 0;
+   scoreB = 0;
+   text_copy = "";
+   for(var i = 0;i < 50; i++){
+      teams.AB[i] = 0;
+      teams.H[i] = 0;
+      teams.RBI[i] = 0;
+      teams.BB[i] = 0;
+      teams.SO[i] = 0;
+      teams.HR[i] = 0;
+   }
+   console.log("AAAA");
+}
