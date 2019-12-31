@@ -483,10 +483,10 @@ function allcases(){
 
 function scorecaculate(){
    for(var i=0;i <10;i++){
-       scoreA += teams.RBI[orderA[count_batterA]];
+       scoreA += teams.RBI[determinA+i];
    }
    for(var i=0;i <10;i++){
-       scoreB += teams.RBI[orderB[count_batterB]];
+       scoreB += teams.RBI[determinB+i];
    }
    document.getElementById("score").innerHTML = "" + scoreA + " ： " + scoreB;
 }
