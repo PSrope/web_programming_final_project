@@ -56,7 +56,7 @@ function selectA_func(){
 
  //play by play
  function startgame(){
-    console.log(orderA, determinA);
+ //   console.log(orderA, determinA);
    for(var i = 0;i < 10;i++){
        var avg = parseInt((teams.batting[orderA[i]] + teams.pitching[orderA[i]] + teams.fielding[orderA[i]]) / 3, 10);
        document.getElementById("batterListA").innerHTML +=
@@ -551,9 +551,9 @@ function basepush(base, type){
        }
        else if(type == 2){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA]++;
+               teams.RBI[determinA + count_batterA - 1]++;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB]++;
+               teams.RBI[determinB + count_batterB - 1]++;
            }
            return 0;
        }
@@ -570,9 +570,9 @@ function basepush(base, type){
        }
        else if(type == 2){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA] += 2;
+               teams.RBI[determinA + count_batterA - 1] += 2;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB] += 2;
+               teams.RBI[determinB + count_batterB - 1] += 2;
            }
            return 0;
        }
@@ -592,17 +592,17 @@ function basepush(base, type){
        }
        else if(type == 1){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA]++;
+               teams.RBI[determinA + count_batterA - 1]++;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB]++;
+               teams.RBI[determinB + count_batterB - 1]++;
            }
            return 2;
        }
        else if(type == 2){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA] += 2;
+               teams.RBI[determinA + count_batterA - 1] += 2;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB] += 2;
+               teams.RBI[determinB + count_batterB - 1] += 2;
            }
            return 0;
        }
@@ -613,9 +613,9 @@ function basepush(base, type){
        }
        if(type == 3 || type == 5) {
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA]++;
+               teams.RBI[determinA + count_batterA - 1]++;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB]++;
+               teams.RBI[determinB + count_batterB - 1]++;
            }
            return 0;
        }
@@ -624,25 +624,25 @@ function basepush(base, type){
        }
        else if(type == 0){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA]++;
+               teams.RBI[determinA + count_batterA - 1]++;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB]++;
+               teams.RBI[determinB + count_batterB - 1]++;
            }
            return 1;
        }
        else if(type == 1){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA]++;
+               teams.RBI[determinA + count_batterA - 1]++;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB]++;
+               teams.RBI[determinB + count_batterB - 1]++;
            }
            return 2;
        }
        else if(type == 2){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA] += 2;
+               teams.RBI[determinA + count_batterA - 1] += 2;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB] += 2;
+               teams.RBI[determinB + count_batterB - 1] += 2;
            }
            return 0;
        }
@@ -662,17 +662,17 @@ function basepush(base, type){
        }
        else if(type == 1){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA]++;
+               teams.RBI[determinA + count_batterA - 1]++;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB]++;
+               teams.RBI[determinB + count_batterB - 1]++;
            }
            return 6;
        }
        else if(type == 2){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA] += 3;
+               teams.RBI[determinA + count_batterA - 1] += 3;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB] += 3;
+               teams.RBI[determinB + count_batterB - 1] += 3;
            }
            return 0;
        }
@@ -683,9 +683,9 @@ function basepush(base, type){
        }
        if(type == 3 || type == 5) {
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA]++;
+               teams.RBI[determinA + count_batterA - 1]++;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB]++;
+               teams.RBI[determinB + count_batterB - 1]++;
            }
            return 1;
        }
@@ -694,25 +694,25 @@ function basepush(base, type){
        }
        else if(type == 0){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA]++;
+               teams.RBI[determinA + count_batterA - 1]++;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB]++;
+               teams.RBI[determinB + count_batterB - 1]++;
            }
            return 4;
        }
        else if(type == 1){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA]++;
+               teams.RBI[determinA + count_batterA - 1]++;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB]++;
+               teams.RBI[determinB + count_batterB - 1]++;
            }
            return 6;
        }
        else if(type == 2){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA] += 3;
+               teams.RBI[determinA + count_batterA - 1] += 3;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB] += 3;
+               teams.RBI[determinB + count_batterB - 1] += 3;
            }
            return 0;
        }
@@ -723,9 +723,9 @@ function basepush(base, type){
        }
        if(type == 3 || type == 5) {
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA]++;
+               teams.RBI[determinA + count_batterA - 1]++;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB]++;
+               teams.RBI[determinB + count_batterB - 1]++;
            }
            return 3;
        }
@@ -734,25 +734,25 @@ function basepush(base, type){
        }
        else if(type == 0){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA]++;
+               teams.RBI[determinA + count_batterA - 1]++;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB]++;
+               teams.RBI[determinB + count_batterB - 1]++;
            }
            return 5;
        }
        else if(type == 1){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA] += 2;
+               teams.RBI[determinA + count_batterA - 1] += 2;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB] += 2;
+               teams.RBI[determinB + count_batterB - 1] += 2;
            }
            return 2;
        }
        else if(type == 2){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA] += 3;
+               teams.RBI[determinA + count_batterA - 1] += 3;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB] += 3;
+               teams.RBI[determinB + count_batterB - 1] += 3;
            }
            return 0;
        }
@@ -763,41 +763,41 @@ function basepush(base, type){
        }
        if(type == 3 || type == 5) {
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA]++;
+               teams.RBI[determinA + count_batterA - 1]++;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB]++;
+               teams.RBI[determinB + count_batterB - 1]++;
            }
            return 5;
        }
        else if(type == -4){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA]++;
+               teams.RBI[determinA + count_batterA - 1]++;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB]++;
+               teams.RBI[determinB + count_batterB - 1]++;
            }
            return 7;
        }
        else if(type == 0){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA]++;
+               teams.RBI[determinA + count_batterA - 1]++;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB]++;
+               teams.RBI[determinB + count_batterB - 1]++;
            }
            return 7;
        }
        else if(type == 1){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA] += 2;
+               teams.RBI[determinA + count_batterA - 1] += 2;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB] += 2;
+               teams.RBI[determinB + count_batterB - 1] += 2;
            }
            return 6;
        }
        else if(type == 2){
            if(inning % 2 == 1) {
-               teams.RBI[orderA[count_batterA - 1] + determinA] += 4;
+               teams.RBI[determinA + count_batterA - 1] += 4;
            } else {
-               teams.RBI[orderB[count_batterB - 1] + determinB] += 4;
+               teams.RBI[determinB + count_batterB - 1] += 4;
            }
            return 0;
        }
@@ -851,20 +851,23 @@ function basetype(base_case){
 function boxset(){
    $("#resultA_logo").css("background-image", "url(" + team_choiceA + ".jpg)");
    $("#resultB_logo").css("background-image", "url(" + team_choiceB + ".jpg)");
-   $("#score").html("&nbsp;" + scoreA + " ： " + scoreB + "&nbsp;");
    document.getElementById("result_table").innerHTML = "<tr><td style='width: 200px;''> </td><td>R</td><td>H</td><td>HR</td></tr>";
    var H_A = 0, H_B = 0, HR_A = 0, HR_B = 0;
+   scoreA = 0; scoreB = 0;
    for(var i = 0;i < 10;i++){
        H_A += teams.H[determinA+i];
        HR_A += teams.HR[determinA+i];
        H_B += teams.H[determinB+i];
        HR_B += teams.HR[determinB+i];
+       scoreA += teams.RBI[determinA+i];
+       scoreB += teams.RBI[determinB+i];
    }
+   $("#score").html("&nbsp;" + scoreA + " ： " + scoreB + "&nbsp;");
    document.getElementById("result_table").innerHTML += "<tr><td>" + teams.team_name[team_choiceA] + "</td><td>" + scoreA + "</td><td>" + H_A + "</td><td>" + HR_A + "</td></tr>";
    document.getElementById("result_table").innerHTML += "<tr><td>" + teams.team_name[team_choiceB] + "</td><td>" + scoreB + "</td><td>" + H_B + "</td><td>" + HR_B + "</td></tr>";
    $("#plays_table").html(text_copy);
-   $("#TeamA_batter").html("<tr><td style='width: 300px;'></td><td>AB</td><td>H</td><td>RBI</td><td>BB</td><td>SO</td><td>HR</td></tr>");
-   $("#TeamB_batter").html("<tr><td style='width: 300px;'></td><td>AB</td><td>H</td><td>RBI</td><td>BB</td><td>SO</td><td>HR</td></tr>");
+   $("#TeamA_batter").html("<tr><td style='width: 300px;'>Team. " + teams.team_name[team_choiceA] + "</td><td>AB</td><td>H</td><td>RBI</td><td>BB</td><td>SO</td><td>HR</td></tr>");
+   $("#TeamB_batter").html("<tr><td style='width: 300px;'>Team. " + teams.team_name[team_choiceB] + "</td><td>AB</td><td>H</td><td>RBI</td><td>BB</td><td>SO</td><td>HR</td></tr>");
    for(var i = 0; i < 10; i++) {
        document.getElementById("TeamA_batter").innerHTML +=
        "<td style='text-align: left; text-indent: 10px; text-indent: 5px;'>" + teams.name[determinA+i] + "</td><td>" + teams.AB[determinA+i] + "</td><td>" + teams.H[determinA+i] + "</td><td>" + teams.RBI[determinA+i] + "</td><td>" + teams.BB[determinA+i] + "</td><td>" + teams.SO[determinA+i] + "</td><td>" + teams.HR[determinA+i] + "</td>";
