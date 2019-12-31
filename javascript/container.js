@@ -210,7 +210,6 @@ $(document).ready(function() {
      });
 
      $(document).on("click", "#toIndex", function(){
-         console.log("Ubutton");
         $("#container").html(''+
         '<h1 align="center"><font face="fantasy">SoftBall Game Simulator</font></h1>' +
         '<img style="display:block; margin:auto;" src="ball.jpeg" border="2"></img>' +

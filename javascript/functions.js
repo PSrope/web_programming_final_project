@@ -75,11 +75,28 @@ function selectA_func(){
    $("#base2").css("background-color", "lightgray");
    $("#base3").css("background-color", "lightgray");
    document.getElementById("plays_table").innerHTML = "<tr><td>比賽開始！！</td></tr><tr><td>1局上半</td></tr>";
-   allcases();
+   document.getElementById("skip").addEventListener("click", settime, false);
+   stepByStep();
+}
+
+var time = 1000;
+var stop = 0;
+
+function settime(){
+   time = 5;
+   console.log("AAA");
+   stepByStep();
+}
+
+function stepByStep() {
+   setInterval(allcases, time);
 }
 
 function allcases(){
-   while(1){
+//   while(1){
+       if(stop == 1){
+          return;
+       }
        scoreA = 0;
        scoreB = 0;
        if(count_out == 1){
@@ -101,7 +118,9 @@ function allcases(){
                document.getElementById("finalPage").disabled = false;
                document.getElementById("skip").disabled = true;
                text_copy += document.getElementById("plays_table").innerHTML;
-               break;
+               stop = 1;
+               return;
+ //              break;
            } else {
                document.getElementById("plays_table").innerHTML += "<tr><td>攻守交換！</td></tr><tr><td>" + " " + "</td></tr>";
                if(inning % 2 == 0) {
@@ -132,7 +151,8 @@ function allcases(){
                            case_type = -3 ;    //表示三振case
                            base_case = basepush(base_case, case_type);
                            scorecaculate();
-                           continue;
+                           return;
+ //                          continue;
                            //printf("strike!! out!!");
                        }
                } else {
@@ -143,7 +163,8 @@ function allcases(){
                    case_type = -4;      //代表四壞case
                    base_case = basepush(base_case, case_type);
                    scorecaculate();
-                   continue;
+                   return;
+ //                  continue;
                }
                if(case_type > -1){
                    if(case_type==0){
@@ -311,7 +332,8 @@ function allcases(){
                        case_type = -3;
                        base_case = basepush(base_case, case_type);
                        scorecaculate();
-                       continue;
+                       return;
+//                       continue;
                        //printf("strike!! out!!");
                    }
                } else {
@@ -322,7 +344,8 @@ function allcases(){
                    case_type = -4;
                    base_case = basepush(base_case, case_type);
                    scorecaculate();
-                   continue;
+                   return;
+ //                  continue;
                }
                if(case_type > -1){
                    if(case_type==0){
@@ -478,7 +501,7 @@ function allcases(){
            basetype(base_case);
            scorecaculate();
        }
-   }
+ //  }//~~~~~~~~~~~~~~~~~~~~~~~~~~
 }
 
 function scorecaculate(){
@@ -895,6 +918,8 @@ function refresh(){
    scoreA = 0;
    scoreB = 0;
    text_copy = "";
+   time = 1000;
+   stop = 0;
    for(var i = 0;i < 50; i++){
       teams.AB[i] = 0;
       teams.H[i] = 0;
@@ -903,5 +928,4 @@ function refresh(){
       teams.SO[i] = 0;
       teams.HR[i] = 0;
    }
-   console.log("AAAA");
 }
