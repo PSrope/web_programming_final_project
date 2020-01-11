@@ -16,3 +16,4 @@ var base_case = 0; // 0: no, 1: 1B, 2: 2B, 3:3B, 4: 1&2B, 5: 1&3B, 6: 2&3B, 7: 1
 var scoreA = 0;
 var scoreB = 0;
 var text_copy = "";
+var pic_B = "";

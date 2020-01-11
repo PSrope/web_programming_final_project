@@ -17,11 +17,31 @@ function selectA_func(){
     var b = document.getElementById("selectB").value;
     b = parseInt(b, 10);
     team_choiceB = b;
-    determinB = team_choiceB * 10;
     document.getElementById("pickB").src = b + ".jpg";
  }
 
+ function ifSameTeam(){
+    console.log(team_choiceA, team_choiceB);
+    if(team_choiceA == team_choiceB){
+       console.log("AAA");
+       pic_B = team_choiceA;
+       team_choiceB = 5;
+       determinB = team_choiceB * 10;
+       for(var i = 0;i < 10;i++){
+           teams.name[determinB + i] = teams.name[determinA + i];
+           teams.batting[determinB + i] = teams.batting[determinA + i];
+           teams.pitching[determinB + i] = teams.pitching[determinA + i];
+           teams.fielding[determinB + i] = teams.fielding[determinA + i];
+           teams.place[determinB + i] = teams.place[determinA + i];
+       }
+    }else{
+       pic_B = team_choiceB;
+       determinB = team_choiceB * 10;
+    }
+}
+
 //code3
+
  function myClick3(){  
     for(var i = 0;i < 10;i++){
        orderA[i] = $("#teamA_drag").find("li").eq(i).val();
@@ -69,23 +89,22 @@ function selectA_func(){
    }
    document.getElementById("innings").innerHTML = "1 <i class='fas fa-caret-up'></i>";
    document.getElementById("logo1").innerHTML = "<img src='" + team_choiceA + ".jpg'></div>";
-   document.getElementById("logo2").innerHTML = "<img src='" + team_choiceB + ".jpg'></div>";
+   document.getElementById("logo2").innerHTML = "<img src='" + pic_B + ".jpg'></div>";
    document.getElementById("outs").innerHTML = "<i class='far fa-circle'>&nbsp;</i><i class='far fa-circle'></i>&nbsp;&nbsp;outs";
    $("#base1").css("background-color", "lightgray");
    $("#base2").css("background-color", "lightgray");
    $("#base3").css("background-color", "lightgray");
    document.getElementById("plays_table").innerHTML = "<tr><td>比賽開始！！</td></tr><tr><td>1局上半</td></tr>";
-   document.getElementById("skip").addEventListener("click", settime, false);
    stepByStep();
 }
 
-var time = 1000;
+var time = 3000;
 var stop = 0;
 
 function settime(){
    time = 5;
-   console.log("AAA");
    stepByStep();
+   time = 3000;
 }
 
 function stepByStep() {
@@ -873,7 +892,7 @@ function basetype(base_case){
 // BOX
 function boxset(){
    $("#resultA_logo").css("background-image", "url(" + team_choiceA + ".jpg)");
-   $("#resultB_logo").css("background-image", "url(" + team_choiceB + ".jpg)");
+   $("#resultB_logo").css("background-image", "url(" + pic_B + ".jpg)");
    document.getElementById("result_table").innerHTML = "<tr><td style='width: 200px;''> </td><td>R</td><td>H</td><td>HR</td></tr>";
    var H_A = 0, H_B = 0, HR_A = 0, HR_B = 0;
    scoreA = 0; scoreB = 0;
@@ -920,7 +939,7 @@ function refresh(){
    text_copy = "";
    time = 1000;
    stop = 0;
-   for(var i = 0;i < 50; i++){
+   for(var i = 0;i < 60; i++){
       teams.AB[i] = 0;
       teams.H[i] = 0;
       teams.RBI[i] = 0;
