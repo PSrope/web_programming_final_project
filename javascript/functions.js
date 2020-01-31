@@ -95,16 +95,17 @@ function selectA_func(){
    $("#base2").css("background-color", "lightgray");
    $("#base3").css("background-color", "lightgray");
    document.getElementById("plays_table").innerHTML = "<tr><td>比賽開始！！</td></tr><tr><td>1局上半</td></tr>";
+   time = 3000;
    stepByStep();
 }
 
-var time = 3000;
 var stop = 0;
 
 function settime(){
    time = 5;
    stepByStep();
    time = 3000;
+   console.log("inininin");
 }
 
 function stepByStep() {
@@ -937,7 +938,7 @@ function refresh(){
    scoreA = 0;
    scoreB = 0;
    text_copy = "";
-   time = 1000;
+   time = 3000;
    stop = 0;
    for(var i = 0;i < 60; i++){
       teams.AB[i] = 0;

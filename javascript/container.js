@@ -15,7 +15,7 @@ $(document).ready(function() {
     '<img style="display:block; margin:auto;" src="ball.jpeg" border="2"></img>' +
     '<div style = "position: relative; background-color:rgb(165, 0, 0,0.8);  margin: auto; width:660px;height:40px;border:3px #CC0000  solid;">' +
     '<p><font size="4" face="微軟正黑體" color="white" align ="center">您將要在五組預設隊伍中選擇兩個隊伍:teamRED 和 teamBLUE 來進行一場對抗賽</font></p>' +
-    '<center><input type="submit" onClick="myClick1()"  value="Game Start" class="submit-btn" id="submit-btn"></input></center>' +
+    '<center><input type="submit" onclick="myClick1()"  value="Game Start" class="submit-btn" id="submit-btn"></input></center>' +
     '<br>' +
     '</div>');
 
@@ -61,7 +61,7 @@ $(document).ready(function() {
         '     };' +
         ' </script>' +
         ' </div>' +
-        ' <input type="submit" onClick="myClick3()"  value="PLAY" class="submit-btn" id="submit-btn3" style="position: relative; left: 650px;"></input>'
+        ' <input type="submit" onclick="myClick3()"  value="PLAY" class="submit-btn" id="submit-btn3" style="position: relative; left: 650px;"></input>'
         );
         teamset();
      });
@@ -121,7 +121,7 @@ $(document).ready(function() {
         '     </div>' +
         '     <br>' +
         '     <input type="button" id="finalPage" value="Next" class="submit-btn2" disabled >' +
-        '     <input type="button" id="skip" onClick="settime()" value="Quick End" class="submit-btn2">' +
+        '     <input type="button" id="skip" onclick="settime()" value="Quick End" class="submit-btn2">' +
         ' </div>'
          );
          startgame();
@@ -180,7 +180,7 @@ $(document).ready(function() {
         '<img style="display:block; margin:auto;" src="ball.jpeg" border="2"></img>' +
         '<div style = "position: relative; background-color:rgb(165, 0, 0,0.8);  margin: auto; width:660px;height:40px;border:3px #CC0000  solid;">' +
         '<p><font size="4" face="微軟正黑體" color="white" align ="center">您將要在五組預設隊伍中選擇兩個隊伍:teamRED 和 teamBLUE 來進行一場對抗賽</font></p>' +
-        '<center><input type="submit" onClick="myClick1()"  value="Game Start" class="submit-btn" id="submit-btn"></input></center>' +
+        '<center><input type="submit" onclick="myClick1()"  value="Game Start" class="submit-btn" id="submit-btn"></input></center>' +
         '<br>' +
         '</div>');
         refresh();
@@ -217,7 +217,7 @@ $(document).ready(function() {
        '   </div>' +
        ' </div>' +
        ' <br>' +
-       ' <center><input type="submit" value="READY" class="submit-btn" id="submit-btn2" onClick="ifSameTeam()"></input></center>'
+       ' <center><input type="submit" value="READY" class="submit-btn" id="submit-btn2" onclick="ifSameTeam()"></input></center>'
         );
     });
 });
